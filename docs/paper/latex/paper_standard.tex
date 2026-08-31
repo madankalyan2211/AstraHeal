@@ -1,14 +1,14 @@
-\documentclass[conference]{IEEEtran}
-\usepackage{cite}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{algorithmic}
+\documentclass[10pt,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{amsmath,amssymb}
 \usepackage{graphicx}
-\usepackage{textcomp}
-\usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage{cite}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{authblk}
 
 \hypersetup{
     colorlinks=true,
@@ -18,25 +18,21 @@
     citecolor=blue,
 }
 
+\title{\textbf{AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery}}
+
+\author{\textbf{AstraHeal Research Group}}
+\affil{Autonomous Systems \& Aerospace Research Platform \\
+\url{https://github.com/madankalyan2211/AstraHeal}}
+
+\date{August 2026}
+
 \begin{document}
-
-\title{AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery}
-
-\author{\IEEEauthorblockN{AstraHeal Research Group}
-\IEEEauthorblockA{\textit{Autonomous Systems \& Aerospace Research} \\
-AstraHeal v1.0 — Research Release \\
-Codebase: \url{https://github.com/madankalyan2211/AstraHeal}}
-}
 
 \maketitle
 
 \begin{abstract}
-Spacecraft operating in Low Earth Orbit (LEO) and deep-space regimes frequently experience subsystem anomalies during prolonged communication blackouts. Conventional Fault Detection, Isolation, and Recovery (FDIR) architectures rely on rigid rule-based tables or blunt transitions to emergency Safe Mode, prematurely terminating science operations. Purely data-driven planners lack formal safety guarantees and risk commanding catastrophic actuation during out-of-distribution (OOD) failures. In this paper, we present \textbf{AstraHeal}, an autonomous fault-recovery platform uniting: (1) Dirichlet evidential Bayesian inference for epistemic and aleatoric uncertainty quantification; (2) zero-mutation digital twin counterfactual lookahead simulation; (3) a deterministic physical Safety Governor enforcing hard physical invariants; and (4) communication-aware autonomy arbitration. Across 15 reproducible experiments, 35 unit tests, multi-cycle orbital benchmarks, and 20 held-out scenarios under unmodelled parameter mismatch, AstraHeal demonstrates: (i) zero executed unsafe actions and zero Safety Governor bypasses across 609 candidate evaluations; (ii) 100\% detection of compound OOD faults ($u_{\text{epistemic}} \ge 0.79$); (iii) sub-degree temperature prediction error ($\text{MAE} = 0.642^\circ\text{C}$) and sub-volt electrical error ($\text{MAE} = 0.415\text{V}$) over 3000s lookahead horizons; (iv) 95.0\% Top-2 action selection accuracy under physical domain shift; and (v) 100\% preservation of science observation capability (574.0 Wh) during recoverable anomalies. We explicitly document that software autonomy cannot prevent spacecraft loss when physical deficits (e.g. internal exothermic heat exceeding radiator capacity) render survival impossible.
+\textbf{Spacecraft operating in Low Earth Orbit (LEO) and deep-space regimes frequently experience subsystem anomalies during prolonged communication blackouts. Conventional Fault Detection, Isolation, and Recovery (FDIR) architectures rely on rigid rule-based tables or blunt transitions to emergency Safe Mode, prematurely terminating science operations. Purely data-driven planners lack formal safety guarantees and risk commanding catastrophic actuation during out-of-distribution (OOD) failures. In this paper, we present AstraHeal, an autonomous fault-recovery platform uniting: (1) Dirichlet evidential Bayesian inference for epistemic and aleatoric uncertainty quantification; (2) zero-mutation digital twin counterfactual lookahead simulation; (3) a deterministic physical Safety Governor enforcing hard physical invariants; and (4) communication-aware autonomy arbitration. Across 15 reproducible experiments, 35 unit tests, multi-cycle orbital benchmarks, and 20 held-out scenarios under unmodelled parameter mismatch, AstraHeal demonstrates: (i) zero executed unsafe actions and zero Safety Governor bypasses across 609 candidate evaluations; (ii) 100\% detection of compound OOD faults ($u_{\text{epistemic}} \ge 0.79$); (iii) sub-degree temperature prediction error ($\text{MAE} = 0.642^\circ\text{C}$) and sub-volt electrical error ($\text{MAE} = 0.415\text{V}$) over 3000s lookahead horizons; (iv) 95.0\% Top-2 action selection accuracy under physical domain shift; and (v) 100\% preservation of science observation capability (574.0 Wh) during recoverable anomalies. We explicitly document that software autonomy cannot prevent spacecraft loss when physical deficits (e.g. internal exothermic heat exceeding radiator capacity) render survival impossible.}
 \end{abstract}
-
-\begin{IEEEkeywords}
-Autonomous Spacecraft, Digital Twin, Counterfactual Simulation, Evidential Deep Learning, Uncertainty Quantification, Fault Diagnosis, Safety Governor.
-\end{IEEEkeywords}
 
 \section{Introduction}
 Modern space exploration increasingly demands high onboard autonomy due to orbital geometry constraints. In Low Earth Orbit (LEO), ground station occultation lasts up to 45 minutes per 95-minute orbit. For deep-space missions to Mars or Lagrange points, round-trip radio propagation latencies range from minutes to hours. Under these conditions, time-critical subsystem anomalies—such as battery impedance degradation, thermal runaway, and bus power shorts—can lead to irreversible mission loss before Earth operators can intervene.
@@ -66,7 +62,7 @@ subject to the strict safety invariance condition:
 \end{equation}
 
 \section{Related Work}
-Classical model-based FDIR architectures such as NASA's Remote Agent~\cite{muscettola1998remote} and Livingstone~\cite{williams2003model} pioneered declarative autonomous diagnosis. Recent advances utilize deep learning (LSTM autoencoders, Isolation Forests) for spacecraft telemetry anomaly detection~\cite{hundman2018detecting, liu2008isolation}. Evidential deep learning~\cite{sensoy2018evidential, malinin2018predictive} quantifies predictive uncertainty by placing Dirichlet priors over class likelihoods. AstraHeal couples Dirichlet evidential Bayesian inference directly with physics-based digital twin counterfactual exploration~\cite{pearl2009causal} and deterministic safety filtering.
+Classical model-based FDIR architectures such as NASA's Remote Agent~\cite{muscettola1998remote} and Livingstone~\cite{williams2003model} pioneered declarative autonomous diagnosis. Recent advances utilize deep learning for spacecraft telemetry anomaly detection~\cite{hundman2018detecting, liu2008isolation}. Evidential deep learning~\cite{sensoy2018evidential, malinin2018predictive} quantifies predictive uncertainty by placing Dirichlet priors over class likelihoods. AstraHeal couples Dirichlet evidential Bayesian inference directly with physics-based digital twin counterfactual exploration~\cite{pearl2009causal} and deterministic safety filtering.
 
 \section{System Architecture}
 AstraHeal integrates five core modules into a closed-loop pipeline:
