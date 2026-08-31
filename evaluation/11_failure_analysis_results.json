@@ -1,0 +1,62 @@
+[
+  {
+    "case_id": "FAIL-01-RUNAWAY",
+    "name": "Uncontainable Severe Thermal Runaway (140W Exothermic Heat)",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "epistemic_uncertainty": 0.9996540747162325,
+    "aleatoric_uncertainty": 0.028494270696841545,
+    "rejected_candidates_count": 5,
+    "selected_action": "ACT-01-SAFE-MODE",
+    "expected_outcome": "Physical failure: radiator dissipation is overwhelmed; Emergency Safe Mode triggered",
+    "mitigation": "Requires hardware thermal pyrotechnic battery isolation cutoff"
+  },
+  {
+    "case_id": "FAIL-02-COMPOUND-OOD",
+    "name": "Compound Multi-Fault (Solar Array Loss + Bus Parasitic Short)",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "epistemic_uncertainty": 0.9997045740953467,
+    "aleatoric_uncertainty": 0.03019184625980032,
+    "rejected_candidates_count": 0,
+    "selected_action": "ACT-00-NOOP",
+    "expected_outcome": "Epistemic uncertainty > 0.80 -> System abstains from aggressive action and enters safe standby",
+    "mitigation": "Downlink diagnostic log to ground station for human analysis"
+  },
+  {
+    "case_id": "FAIL-03-SENSOR-CORRUPT",
+    "name": "Sensor Bias Glitch (-10V offset)",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "epistemic_uncertainty": 0.9996605319335371,
+    "aleatoric_uncertainty": 0.029790252740334703,
+    "rejected_candidates_count": 5,
+    "selected_action": "ACT-01-SAFE-MODE",
+    "expected_outcome": "Anomaly score triggers -> Governor prevents false actuation by verifying physical consistency",
+    "mitigation": "Cross-sensor analytical redundancy checking"
+  },
+  {
+    "case_id": "FAIL-04-ECLIPSE-STARVATION",
+    "name": "Low Initial SoC (30%) in Deep Eclipse with Surge",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "epistemic_uncertainty": 0.9996629132902853,
+    "aleatoric_uncertainty": 0.03014494538913472,
+    "rejected_candidates_count": 0,
+    "selected_action": "ACT-00-NOOP",
+    "expected_outcome": "Battery SoC drops below 15% reserve floor during shadow pass",
+    "mitigation": "Pre-eclipse load shedding orbit planning"
+  },
+  {
+    "case_id": "FAIL-05-GOVERNOR-REJECTION",
+    "name": "Unsafe Recovery Candidate Rejected by Safety Governor",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "epistemic_uncertainty": 0.9996158567043257,
+    "aleatoric_uncertainty": 0.03011714957631491,
+    "rejected_candidates_count": 0,
+    "selected_action": "ACT-00-NOOP",
+    "expected_outcome": "Safety Governor rejects No-Op candidate due to predicted thermal limit breach (51.2\u00b0C)",
+    "mitigation": "Governor enforces safe payload throttling alternative"
+  }
+]

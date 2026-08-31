@@ -1,0 +1,42 @@
+[
+  {
+    "scenario_id": "SCEN-01-CRITICAL-BLACKOUT",
+    "name": "Fast Thermal Runaway in Communication Blackout",
+    "timestamp": 800.0,
+    "link_status": "OUT_OF_RANGE",
+    "time_to_contact_sec": 1496.0,
+    "time_to_criticality_sec": 300.0,
+    "arbitrated_decision": "ACT_AUTONOMOUSLY",
+    "rationale": "Next ground contact is in 1496s (total ground delay 1801s), which exceeds critical failure threshold (300s with 1.5x safety margin). Onboard autonomous action MANDATORY."
+  },
+  {
+    "scenario_id": "SCEN-02-BENIGN-BLACKOUT",
+    "name": "Gradual Solar String Fade in Blackout",
+    "timestamp": 1800.0,
+    "link_status": "OUT_OF_RANGE",
+    "time_to_contact_sec": 496.0,
+    "time_to_criticality_sec": 7200.0,
+    "arbitrated_decision": "WAIT_FOR_GROUND",
+    "rationale": "Fault severity is non-critical (time-to-criticality 7200s). Ground contact in 496s allows safe operator review. Telemetry queued for downlink."
+  },
+  {
+    "scenario_id": "SCEN-03-ACTIVE-PASS-URGENT",
+    "name": "Catastrophic Short During Active Ground Pass",
+    "timestamp": 2400.0,
+    "link_status": "IN_CONTACT",
+    "time_to_contact_sec": 0.0,
+    "time_to_criticality_sec": 7200.0,
+    "arbitrated_decision": "WAIT_FOR_GROUND",
+    "rationale": "Direct ground link active with SVALBARD-GS (496s remaining). Telemetry downlinked for human verification."
+  },
+  {
+    "scenario_id": "SCEN-04-ACTIVE-PASS-STABLE",
+    "name": "Minor Sensor Bias During Active Ground Pass",
+    "timestamp": 2500.0,
+    "link_status": "IN_CONTACT",
+    "time_to_contact_sec": 0.0,
+    "time_to_criticality_sec": 7200.0,
+    "arbitrated_decision": "WAIT_FOR_GROUND",
+    "rationale": "Direct ground link active with SVALBARD-GS (396s remaining). Telemetry downlinked for human verification."
+  }
+]

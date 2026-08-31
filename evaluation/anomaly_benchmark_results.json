@@ -1,0 +1,74 @@
+{
+  "StatisticalDetector_ZScore_Mahalanobis": {
+    "has_ground_truth": true,
+    "total_samples": 1440,
+    "true_anomalies_count": 302,
+    "detected_anomalies_count": 85,
+    "precision": 0.29411764705882354,
+    "recall": 0.08278145695364239,
+    "f1_score": 0.12919896640826872,
+    "false_alarm_rate": 0.05272407732864675,
+    "roc_auc": 0.6222605011697063,
+    "confusion_matrix": {
+      "TN": 1078,
+      "FP": 60,
+      "FN": 277,
+      "TP": 25
+    },
+    "detection_latency_steps": 50
+  },
+  "IsolationForestDetector": {
+    "has_ground_truth": true,
+    "total_samples": 1440,
+    "true_anomalies_count": 302,
+    "detected_anomalies_count": 264,
+    "precision": 0.4962121212121212,
+    "recall": 0.4337748344370861,
+    "f1_score": 0.4628975265017668,
+    "false_alarm_rate": 0.11687170474516696,
+    "roc_auc": 0.8447520338923872,
+    "confusion_matrix": {
+      "TN": 1005,
+      "FP": 133,
+      "FN": 171,
+      "TP": 131
+    },
+    "detection_latency_steps": 3
+  },
+  "OneClassSVMDetector": {
+    "has_ground_truth": true,
+    "total_samples": 1440,
+    "true_anomalies_count": 302,
+    "detected_anomalies_count": 635,
+    "precision": 0.32755905511811023,
+    "recall": 0.6887417218543046,
+    "f1_score": 0.4439701173959445,
+    "false_alarm_rate": 0.37521968365553604,
+    "roc_auc": 0.695780327983333,
+    "confusion_matrix": {
+      "TN": 711,
+      "FP": 427,
+      "FN": 94,
+      "TP": 208
+    },
+    "detection_latency_steps": 0
+  },
+  "CompositeEnsembleDetector": {
+    "has_ground_truth": true,
+    "total_samples": 1440,
+    "true_anomalies_count": 302,
+    "detected_anomalies_count": 101,
+    "precision": 0.26732673267326734,
+    "recall": 0.08940397350993377,
+    "f1_score": 0.13399503722084366,
+    "false_alarm_rate": 0.06502636203866433,
+    "roc_auc": 0.7639055389378367,
+    "confusion_matrix": {
+      "TN": 1064,
+      "FP": 74,
+      "FN": 275,
+      "TP": 27
+    },
+    "detection_latency_steps": 15
+  }
+}

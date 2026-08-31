@@ -1,0 +1,43 @@
+# Spacecraft Power-System (EPS) Digital Twin Configuration
+
+mission:
+  orbit_altitude_km: 550.0  # LEO
+  orbit_period_sec: 5740.0  # ~95.6 minutes
+  eclipse_fraction: 0.36    # ~35 minutes eclipse, ~60 minutes sunlight
+  solar_constant_w_m2: 1361.0
+
+solar_array:
+  panel_area_m2: 2.5
+  efficiency: 0.28
+  mppt_efficiency: 0.95
+  temp_coefficient_pmax: -0.0035  # %/degC relative to 25 degC
+
+battery_pack:
+  chemistry: "LiFePO4/NMC Space Grade"
+  nominal_voltage_v: 28.0
+  capacity_ah: 40.0
+  initial_soc: 0.95
+  cell_series_count: 8
+  nominal_resistance_ohm: 0.045
+  thermal_mass_j_per_k: 4500.0
+  thermal_coupling_ambient: 0.85
+  ambient_equilibrium_temp_c: 20.0
+  deep_space_sink_temp_k: 3.0
+
+power_distribution:
+  bus_nominal_voltage_v: 28.0
+  bus_voltage_min_v: 22.0
+  bus_voltage_max_v: 34.0
+  loads:
+    obc_base_w: 25.0
+    adcs_base_w: 45.0
+    ttc_receive_w: 15.0
+    ttc_transmit_w: 80.0
+    thermal_heaters_w: 35.0
+    payload_standby_w: 10.0
+    payload_active_w: 120.0
+
+simulation:
+  time_step_sec: 1.0
+  default_duration_sec: 18000.0  # ~3.1 orbits
+  random_seed: 42

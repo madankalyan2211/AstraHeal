@@ -1,0 +1,34 @@
+# Fault Diagnosis & Uncertainty Estimation Configuration
+
+thresholds:
+  confidence_cutoff: 0.65
+  max_epistemic_uncertainty_for_known: 0.35
+  min_evidence_points: 3
+
+failure_modes:
+  - id: "BATTERY_INTERNAL_RESISTANCE_SPIKE"
+    subsystem: "EPS_BATTERY"
+    criticality: "HIGH"
+    description: "Rapid impedance surge causing high IR drop and localized Joule heating"
+  - id: "SOLAR_ARRAY_STRING_FAULT"
+    subsystem: "EPS_SOLAR"
+    criticality: "MEDIUM"
+    description: "Partial or full loss of solar panel string generation capacity"
+  - id: "THERMAL_RUNAWAY_INITIATION"
+    subsystem: "EPS_THERMAL"
+    criticality: "CRITICAL"
+    description: "Uncontrolled exothermic self-heating in battery pack or regulator"
+  - id: "PARASITIC_BUS_OVERLOAD"
+    subsystem: "EPS_DISTRIBUTION"
+    criticality: "HIGH"
+    description: "Excessive payload/subsystem current draw dragging down bus voltage"
+  - id: "SENSOR_BIAS_DRIFT"
+    subsystem: "EPS_INSTRUMENTATION"
+    criticality: "LOW"
+    description: "Telemetry sensor calibration offset or thermal drift"
+
+classifier:
+  ensemble_size: 10
+  prior_weight: 1.0
+  ood_distance_metric: "mahalanobis"
+  ood_threshold_percentile: 95.0

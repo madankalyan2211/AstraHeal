@@ -1,0 +1,67 @@
+[
+  {
+    "scenario": "Nominal Sunlight Operation",
+    "status": "INSUFFICIENT_EVIDENCE",
+    "primary_failure_mode": "NOMINAL_OPERATION",
+    "confidence": 0.92,
+    "total_uncertainty": 0.08,
+    "epistemic_uncertainty": 0.05,
+    "aleatoric_uncertainty": 0.08,
+    "evidence": [
+      "Telemetry consistent with nominal envelope; no actionable fault detected."
+    ]
+  },
+  {
+    "scenario": "Battery Internal Resistance Spike",
+    "status": "KNOWN_FAILURE",
+    "primary_failure_mode": "BATTERY_INTERNAL_RESISTANCE_SPIKE",
+    "confidence": 0.7184127365217,
+    "total_uncertainty": 0.31013030535946584,
+    "epistemic_uncertainty": 0.08625750987671743,
+    "aleatoric_uncertainty": 0.5837526109494917,
+    "evidence": [
+      "Nearest known failure archetype: BATTERY_INTERNAL_RESISTANCE_SPIKE (Mahalanobis distance = 1.53\u03c3)",
+      "Epistemic (OOD) uncertainty: 0.086, Aleatoric (ambiguity) uncertainty: 0.584"
+    ]
+  },
+  {
+    "scenario": "Thermal Runaway Initiation",
+    "status": "KNOWN_FAILURE",
+    "primary_failure_mode": "THERMAL_RUNAWAY_INITIATION",
+    "confidence": 0.998342652862801,
+    "total_uncertainty": 0.03342502636939119,
+    "epistemic_uncertainty": 0.05390690448211153,
+    "aleatoric_uncertainty": 0.008391619787177434,
+    "evidence": [
+      "Nearest known failure archetype: THERMAL_RUNAWAY_INITIATION (Mahalanobis distance = 1.11\u03c3)",
+      "Epistemic (OOD) uncertainty: 0.054, Aleatoric (ambiguity) uncertainty: 0.008"
+    ]
+  },
+  {
+    "scenario": "Parasitic Bus Short / Overload",
+    "status": "KNOWN_FAILURE",
+    "primary_failure_mode": "PARASITIC_BUS_OVERLOAD",
+    "confidence": 0.9835702603378965,
+    "total_uncertainty": 0.051394719610582035,
+    "epistemic_uncertainty": 0.04193063970282232,
+    "aleatoric_uncertainty": 0.06296192838673279,
+    "evidence": [
+      "Nearest known failure archetype: PARASITIC_BUS_OVERLOAD (Mahalanobis distance = 0.89\u03c3)",
+      "Epistemic (OOD) uncertainty: 0.042, Aleatoric (ambiguity) uncertainty: 0.063"
+    ]
+  },
+  {
+    "scenario": "Novel Unseen Anomaly (Out-Of-Distribution)",
+    "status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "confidence": 0.9437595202676994,
+    "total_uncertainty": 0.6285293547836112,
+    "epistemic_uncertainty": 1.0,
+    "aleatoric_uncertainty": 0.1745096772969135,
+    "evidence": [
+      "Nearest known failure archetype: BATTERY_INTERNAL_RESISTANCE_SPIKE (Mahalanobis distance = 486.33\u03c3)",
+      "Epistemic (OOD) uncertainty: 1.000, Aleatoric (ambiguity) uncertainty: 0.175",
+      "Significant OOD distance (486.33\u03c3 > 3.5\u03c3 threshold) indicates potential novel/unseen anomaly mechanism."
+    ]
+  }
+]

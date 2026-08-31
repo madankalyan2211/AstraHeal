@@ -1,0 +1,62 @@
+[
+  {
+    "action_id": "ACT-00-NOOP",
+    "action_type": "CONTINUE_NOMINAL",
+    "description": "Continue nominal operations without intervention (Baseline No-Op)",
+    "max_temp_c": 23.975750200426514,
+    "min_voltage_v": 31.047532958102817,
+    "min_soc": 0.9012369248018046,
+    "joule_heat_kj": 362.2580583984103,
+    "survived": true,
+    "payload_avail_pct": 100.0,
+    "constraint_violations": []
+  },
+  {
+    "action_id": "ACT-01-SAFE-MODE",
+    "action_type": "ENTER_SAFE_MODE",
+    "description": "Transition spacecraft to minimal power Safe Mode (OBC + basic TT&C)",
+    "max_temp_c": 23.29410426848249,
+    "min_voltage_v": 31.397664213000873,
+    "min_soc": 0.9132688626049943,
+    "joule_heat_kj": 402.9715680883602,
+    "survived": true,
+    "payload_avail_pct": 100.0,
+    "constraint_violations": []
+  },
+  {
+    "action_id": "ACT-02-THROTTLE-PAYLOAD-50",
+    "action_type": "REDUCE_PAYLOAD_LOAD",
+    "description": "Throttle science payload by 50% to reduce bus power load and Joule heating",
+    "max_temp_c": 23.930486739096924,
+    "min_voltage_v": 31.086532835044313,
+    "min_soc": 0.9025834719195037,
+    "joule_heat_kj": 366.51729253008193,
+    "survived": true,
+    "payload_avail_pct": 50.0,
+    "constraint_violations": []
+  },
+  {
+    "action_id": "ACT-03-DISABLE-PAYLOAD",
+    "action_type": "DISABLE_NON_CRITICAL_SUBSYSTEM",
+    "description": "Isolate science payload completely to protect battery health and preserve bus stability",
+    "max_temp_c": 23.883938263620532,
+    "min_voltage_v": 31.125520811401522,
+    "min_soc": 0.9039296922809118,
+    "joule_heat_kj": 370.841540734048,
+    "survived": true,
+    "payload_avail_pct": 0.0,
+    "constraint_violations": []
+  },
+  {
+    "action_id": "ACT-04-CONSERVATIVE-STANDBY",
+    "action_type": "DEFER_NON_CRITICAL_ACTIVITY",
+    "description": "Drop to conservative standby mode while gathering evidence",
+    "max_temp_c": 23.975750200426514,
+    "min_voltage_v": 31.047532958102817,
+    "min_soc": 0.9012369248018046,
+    "joule_heat_kj": 362.2580583984103,
+    "survived": true,
+    "payload_avail_pct": 100.0,
+    "constraint_violations": []
+  }
+]

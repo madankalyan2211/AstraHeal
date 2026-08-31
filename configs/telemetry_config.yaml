@@ -1,0 +1,27 @@
+# Telemetry Subsystem Configuration
+
+dataset:
+  name: "NASA PCoE Li-ion Battery Aging Dataset"
+  source_url: "https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/"
+  description: "Lithium-ion battery run-to-failure cycle tests conducted at NASA Ames Research Center."
+  provenance_notice: "Public domain / NASA open research dataset. Used for academic and independent research validation."
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+
+standard_schema:
+  nominal_frequency_hz: 1.0
+  voltage_unit: "V"
+  current_unit: "A"
+  temperature_unit: "degC"
+  capacity_unit: "Ah"
+
+filtering:
+  median_filter_kernel_size: 5
+  outlier_z_threshold: 4.0
+  max_interpolated_gap_sec: 10.0
+
+feature_extraction:
+  rolling_window_sec: 30
+  compute_differential_capacity: true
+  compute_internal_resistance: true
+  compute_thermal_rate: true

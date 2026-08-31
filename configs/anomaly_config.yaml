@@ -1,0 +1,29 @@
+# Baseline Anomaly Detection Configuration
+
+detectors:
+  statistical:
+    rolling_window: 20
+    z_score_threshold: 3.0
+    iqr_multiplier: 2.5
+    mahalanobis_threshold: 3.5
+    min_affected_signal_dev: 2.0
+
+  isolation_forest:
+    contamination: 0.05
+    n_estimators: 100
+    random_state: 42
+    max_samples: "auto"
+
+  one_class_svm:
+    kernel: "rbf"
+    gamma: "scale"
+    nu: 0.05
+
+evaluation:
+  test_split_ratio: 0.3
+  metrics:
+    - "precision"
+    - "recall"
+    - "f1_score"
+    - "false_alarm_rate"
+    - "roc_auc"

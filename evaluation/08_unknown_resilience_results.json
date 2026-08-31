@@ -1,0 +1,74 @@
+[
+  {
+    "category": "KNOWN",
+    "scenario_name": "Standard Battery Resistance Surge (4.0x)",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "confidence": 0.9898462404518987,
+    "epistemic_uncertainty": 0.8621530031074996,
+    "aleatoric_uncertainty": 0.041445999746215545,
+    "abstained_from_aggressive_action": true,
+    "safe_fallback_triggered": true,
+    "policy_rationale": "High epistemic uncertainty (0.862 > 0.50). Aggressive autonomous action INHIBITED. Reversible safe standby commanded while queuing full diagnostic frame for ground inspection."
+  },
+  {
+    "category": "KNOWN",
+    "scenario_name": "Solar Array Partial String Shading (50%)",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "confidence": 0.9898050794891416,
+    "epistemic_uncertainty": 0.8775339802043634,
+    "aleatoric_uncertainty": 0.04158437723593385,
+    "abstained_from_aggressive_action": true,
+    "safe_fallback_triggered": true,
+    "policy_rationale": "High epistemic uncertainty (0.878 > 0.50). Aggressive autonomous action INHIBITED. Reversible safe standby commanded while queuing full diagnostic frame for ground inspection."
+  },
+  {
+    "category": "KNOWN",
+    "scenario_name": "Exothermic Thermal Anomaly (60W Heat)",
+    "diagnosis_status": "INSUFFICIENT_EVIDENCE",
+    "primary_failure_mode": "NOMINAL_OPERATION",
+    "confidence": 0.6171475664969609,
+    "epistemic_uncertainty": 0.05,
+    "aleatoric_uncertainty": 0.3828524335030391,
+    "abstained_from_aggressive_action": false,
+    "safe_fallback_triggered": false,
+    "policy_rationale": "Low epistemic uncertainty (0.050 <= 0.50). Fault conforms to known NOMINAL_OPERATION manifold. Autonomous recovery plan authorized."
+  },
+  {
+    "category": "UNSEEN_OOD",
+    "scenario_name": "Simultaneous Compound Fault (Solar Occlusion + Bus Short)",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "confidence": 0.9944870132489996,
+    "epistemic_uncertainty": 0.9999999681251345,
+    "aleatoric_uncertainty": 0.025887497312808486,
+    "abstained_from_aggressive_action": true,
+    "safe_fallback_triggered": true,
+    "policy_rationale": "High epistemic uncertainty (1.000 > 0.50). Aggressive autonomous action INHIBITED. Reversible safe standby commanded while queuing full diagnostic frame for ground inspection."
+  },
+  {
+    "category": "UNSEEN_OOD",
+    "scenario_name": "Extreme Novel Severity (15.0x Resistance Surge)",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "confidence": 0.9899423789330749,
+    "epistemic_uncertainty": 0.792807108120946,
+    "aleatoric_uncertainty": 0.04112802864781044,
+    "abstained_from_aggressive_action": true,
+    "safe_fallback_triggered": true,
+    "policy_rationale": "High epistemic uncertainty (0.793 > 0.50). Aggressive autonomous action INHIBITED. Reversible safe standby commanded while queuing full diagnostic frame for ground inspection."
+  },
+  {
+    "category": "UNSEEN_OOD",
+    "scenario_name": "Corrupted Sensor Inversion (Simultaneous Bias + Voltage Glitch)",
+    "diagnosis_status": "UNKNOWN_FAILURE",
+    "primary_failure_mode": "NOVEL_UNSEEN_ANOMALY",
+    "confidence": 0.992729350490488,
+    "epistemic_uncertainty": 0.9194437231333247,
+    "aleatoric_uncertainty": 0.03185468939945281,
+    "abstained_from_aggressive_action": true,
+    "safe_fallback_triggered": true,
+    "policy_rationale": "High epistemic uncertainty (0.919 > 0.50). Aggressive autonomous action INHIBITED. Reversible safe standby commanded while queuing full diagnostic frame for ground inspection."
+  }
+]

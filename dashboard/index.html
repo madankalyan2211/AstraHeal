@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AstraHeal — Autonomous Self-Healing Spacecraft Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Disclaimer Header -->
+  <div class="simulation-banner" id="disclaimer-banner">
+    <div class="banner-badge">RESEARCH DIGITAL TWIN</div>
+    <div class="banner-text">
+      <strong>SIMULATION — NOT FLIGHT VALIDATED:</strong> Visualizing high-fidelity orbital spacecraft power digital twin telemetry. Does not directly control an active flight spacecraft.
+    </div>
+  </div>
+
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="brand-icon">🛰️</div>
+        <div>
+          <h1 class="brand-title">ASTRAHEAL</h1>
+          <p class="brand-subtitle">Autonomous Self-Healing Spacecraft Intelligence Platform</p>
+        </div>
+      </div>
+      <div class="header-status-group">
+        <div class="status-pill safe" id="mission-status-pill">
+          <span class="status-dot"></span>
+          <span id="mission-status-text">MISSION STABILIZED</span>
+        </div>
+        <div class="status-pill dark" id="orbit-info">
+          <span>LEO Orbit • 550 km</span>
+        </div>
+        <div class="status-pill alert" id="comm-status-pill">
+          <span>📡 Blackout Occultation</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="dashboard-grid">
+      <!-- Left Column: Primary Telemetry & Live Charts -->
+      <section class="grid-col col-main">
+        <!-- Telemetry Metric Cards -->
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="metric-label">Bus Voltage</div>
+            <div class="metric-value" id="val-voltage">31.8 <span class="unit">V</span></div>
+            <div class="metric-sub safe">Nominal (Limit: 22.0V)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Battery Current</div>
+            <div class="metric-value" id="val-current">7.4 <span class="unit">A</span></div>
+            <div class="metric-sub safe">Within Rating (&lt;40A)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Battery Core Temp</div>
+            <div class="metric-value" id="val-temp">18.9 <span class="unit">°C</span></div>
+            <div class="metric-sub safe">Thermal Margin: 27.1°C</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">State of Charge</div>
+            <div class="metric-value" id="val-soc">95.4 <span class="unit">%</span></div>
+            <div class="metric-sub safe">Reserve Floor: 15.0%</div>
+          </div>
+        </div>
+
+        <!-- Telemetry Charts -->
+        <div class="panel-card chart-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Mission Elapsed Telemetry (Full 3-Orbit Horizon)</h2>
+            <div class="chart-legend-custom">
+              <span class="legend-item"><span class="legend-color volt"></span> Voltage (V)</span>
+              <span class="legend-item"><span class="legend-color temp"></span> Temp (°C)</span>
+              <span class="legend-item"><span class="legend-color soc"></span> SoC (%)</span>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="telemetryChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Counterfactual Action Comparison Table -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <h2 class="panel-title">Counterfactual Lookahead Simulation (Forked Digital Twin Branches)</h2>
+            <div class="panel-tag">Horizon: 3000s</div>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table" id="counterfactual-table">
+              <thead>
+                <tr>
+                  <th>Action ID</th>
+                  <th>Action Type</th>
+                  <th>Predicted Max Temp</th>
+                  <th>Predicted Min Volt</th>
+                  <th>Payload Utility</th>
+                  <th>Safety Governor</th>
+                  <th>Score</th>
+                </tr>
+              </thead>
+              <tbody id="counterfactual-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Intelligence & Safety Governor -->
+      <section class="grid-col col-side">
+        <!-- Diagnostic & Uncertainty Card -->
+        <div class="panel-card intelligence-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Evidential Diagnosis & Uncertainty</h2>
+          </div>
+          <div class="diag-status-badge warning" id="diag-badge">
+            <span class="diag-title">UNKNOWN_FAILURE</span>
+            <span class="diag-sub" id="diag-detail">NOVEL_UNSEEN_ANOMALY (High Impedance)</span>
+          </div>
+
+          <div class="uncertainty-bars">
+            <div class="unc-row">
+              <div class="unc-header">
+                <span>Epistemic Uncertainty (OOD Distance)</span>
+                <span class="unc-val" id="val-epistemic">1.000</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill red" id="bar-epistemic" style="width: 100%"></div>
+              </div>
+            </div>
+
+            <div class="unc-row">
+              <div class="unc-header">
+                <span>Aleatoric Uncertainty (Entropy)</span>
+                <span class="unc-val" id="val-aleatoric">0.025</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill emerald" id="bar-aleatoric" style="width: 2.5%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="unc-notice" id="unc-notice">
+            ⚠️ <strong>OOD Notice:</strong> High epistemic uncertainty detected (&gt;0.50). Autonomous actions restricted to conservative safe standby & verified non-disruptive mitigations.
+          </div>
+        </div>
+
+        <!-- Deterministic Safety Governor Decision -->
+        <div class="panel-card safety-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Deterministic Safety Governor</h2>
+            <div class="governor-badge approved">AUTHORIZED</div>
+          </div>
+          <div class="governor-body">
+            <div class="governor-rule-item passed">
+              <span class="rule-icon">✓</span>
+              <span class="rule-name">Battery Temp &le; 46.0°C</span>
+              <span class="rule-margin">+27.1°C Margin</span>
+            </div>
+            <div class="governor-rule-item passed">
+              <span class="rule-icon">✓</span>
+              <span class="rule-name">Bus Voltage &ge; 22.0V</span>
+              <span class="rule-margin">+9.0V Margin</span>
+            </div>
+            <div class="governor-rule-item passed">
+              <span class="rule-icon">✓</span>
+              <span class="rule-name">Battery Current &le; 40.0A</span>
+              <span class="rule-margin">+32.6A Margin</span>
+            </div>
+            <div class="governor-rule-item passed">
+              <span class="rule-icon">✓</span>
+              <span class="rule-name">Battery Reserve SoC &ge; 15.0%</span>
+              <span class="rule-margin">+75.4% Margin</span>
+            </div>
+          </div>
+
+          <div class="selected-plan-box">
+            <div class="plan-label">SELECTED RECOVERY ACTION</div>
+            <div class="plan-title" id="selected-plan-title">ACT-00-NOOP (CONTINUE_NOMINAL)</div>
+            <div class="plan-rationale" id="selected-plan-rationale">
+              Evaluated counterfactual branches; verified safe thermal margin (27.1°C) and voltage stability while preserving 100% science payload observations.
+            </div>
+          </div>
+        </div>
+
+        <!-- Communication & Orbit Context -->
+        <div class="panel-card comm-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Communication & Ground Visibility</h2>
+          </div>
+          <div class="comm-grid">
+            <div class="comm-stat">
+              <div class="comm-stat-label">RF Link State</div>
+              <div class="comm-stat-val warning">Blackout (Occultation)</div>
+            </div>
+            <div class="comm-stat">
+              <div class="comm-stat-label">Next Ground Pass</div>
+              <div class="comm-stat-val">Svalbard-GS in 4,336s</div>
+            </div>
+            <div class="comm-stat">
+              <div class="comm-stat-label">Decision Latency</div>
+              <div class="comm-stat-val">300s Operator Budget</div>
+            </div>
+            <div class="comm-stat">
+              <div class="comm-stat-label">Autonomy Arbitration</div>
+              <div class="comm-stat-val safe">ACT_AUTONOMOUSLY</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div>AstraHeal Research Project • Independent Autonomous Spacecraft Intelligence Platform</div>
+      <div>NASA PCoE Open Dataset Attribution • MIT License • August 2026</div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

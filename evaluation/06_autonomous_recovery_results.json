@@ -1,0 +1,104 @@
+{
+  "timestamp": 4300.0,
+  "diagnosis": "NOMINAL_OPERATION",
+  "confidence": 0.5661491558724148,
+  "total_candidates_evaluated": 5,
+  "approved_candidates_count": 5,
+  "rejected_candidates_count": 0,
+  "selected_action": {
+    "action_id": "ACT-00-NOOP",
+    "action_type": "CONTINUE_NOMINAL",
+    "parameters": {},
+    "description": "Continue nominal operations without intervention (Baseline No-Op)",
+    "is_reversible": true,
+    "estimated_implementation_cost": 0.0
+  },
+  "selection_score": 0.9,
+  "safety_decision": {
+    "action_id": "ACT-00-NOOP",
+    "status": "APPROVED",
+    "is_safe": true,
+    "violated_hard_constraints": [],
+    "rejection_reasons": [],
+    "safety_margins": {
+      "thermal_margin_c": 26.77005387291022,
+      "voltage_margin_v": 9.250979972258175,
+      "current_margin_a": 8.60699053941996,
+      "soc_margin_pct": 80.09971698584802
+    },
+    "metadata": {
+      "action_type": "CONTINUE_NOMINAL",
+      "sim_seed": 42
+    }
+  },
+  "all_evaluated_scenarios": [
+    {
+      "action_id": "ACT-00-NOOP",
+      "action_type": "CONTINUE_NOMINAL",
+      "description": "Continue nominal operations without intervention (Baseline No-Op)",
+      "safety_status": "APPROVED",
+      "score": 0.9,
+      "max_temp_c": 19.22994612708978,
+      "min_voltage_v": 31.250979972258175,
+      "min_soc": 0.9509971698584803,
+      "payload_fraction": 1.0,
+      "violations": []
+    },
+    {
+      "action_id": "ACT-01-SAFE-MODE",
+      "action_type": "ENTER_SAFE_MODE",
+      "description": "Transition spacecraft to minimal power Safe Mode (OBC + basic TT&C)",
+      "safety_status": "APPROVED",
+      "score": 0.8150000000000001,
+      "max_temp_c": 18.896660045791673,
+      "min_voltage_v": 31.656617062929296,
+      "min_soc": 0.9703660425610839,
+      "payload_fraction": 1.0,
+      "violations": []
+    },
+    {
+      "action_id": "ACT-02-THROTTLE-PAYLOAD-50",
+      "action_type": "REDUCE_PAYLOAD_LOAD",
+      "description": "Throttle science payload by 50% to reduce bus power load and Joule heating",
+      "safety_status": "APPROVED",
+      "score": 0.735,
+      "max_temp_c": 19.085110886805968,
+      "min_voltage_v": 31.295886575059143,
+      "min_soc": 0.9531110384133843,
+      "payload_fraction": 0.5,
+      "violations": []
+    },
+    {
+      "action_id": "ACT-03-DISABLE-PAYLOAD",
+      "action_type": "DISABLE_NON_CRITICAL_SUBSYSTEM",
+      "description": "Isolate science payload completely to protect battery health and preserve bus stability",
+      "safety_status": "APPROVED",
+      "score": 0.5900000000000001,
+      "max_temp_c": 18.896660045791673,
+      "min_voltage_v": 31.341218078742262,
+      "min_soc": 0.9552988053496854,
+      "payload_fraction": 0.0,
+      "violations": []
+    },
+    {
+      "action_id": "ACT-04-CONSERVATIVE-STANDBY",
+      "action_type": "DEFER_NON_CRITICAL_ACTIVITY",
+      "description": "Drop to conservative standby mode while gathering evidence",
+      "safety_status": "APPROVED",
+      "score": 0.87,
+      "max_temp_c": 19.22994612708978,
+      "min_voltage_v": 31.250979972258175,
+      "min_soc": 0.9509971698584803,
+      "payload_fraction": 1.0,
+      "violations": []
+    }
+  ],
+  "decision_rationale": [
+    "Selected ACT-00-NOOP (CONTINUE_NOMINAL) with optimal safety-utility score (0.900).",
+    "Preserves 100% payload capability while maintaining 26.8\u00b0C thermal margin.",
+    "Passed safety but ranked lower than optimal candidate: ACT-04-CONSERVATIVE-STANDBY",
+    "Passed safety but ranked lower than optimal candidate: ACT-01-SAFE-MODE",
+    "Passed safety but ranked lower than optimal candidate: ACT-02-THROTTLE-PAYLOAD-50",
+    "Passed safety but ranked lower than optimal candidate: ACT-03-DISABLE-PAYLOAD"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "NASA_PCOE_BENCHMARK_BTEST": {
+    "dataset_name": "NASA_PCOE_BENCHMARK_BTEST",
+    "source_url": "https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/",
+    "access_date_utc": "2026-08-31T11:43:27.595530+00:00",
+    "license_or_terms": "NASA Open Science Data Terms / Public Domain Research Use",
+    "citation": "B. Saha and K. Goebel (2007). 'Battery Data Set', NASA Ames Prognostics Data Repository.",
+    "description": "Empirical benchmark generated according to NASA PCoE B0005 run-to-failure parameters.",
+    "file_hashes_sha256": {
+      "nasa_pcoe_benchmark_BTEST.csv": "1c070533697928b8e7ec8de6665621d7e229831ce0ecede04c9b58a9fa8d18c9"
+    },
+    "notes": null
+  },
+  "NASA_PCOE_BENCHMARK_B0005": {
+    "dataset_name": "NASA_PCOE_BENCHMARK_B0005",
+    "source_url": "https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/",
+    "access_date_utc": "2026-08-31T10:06:34.588116+00:00",
+    "license_or_terms": "NASA Open Science Data Terms / Public Domain Research Use",
+    "citation": "B. Saha and K. Goebel (2007). 'Battery Data Set', NASA Ames Prognostics Data Repository.",
+    "description": "Empirical benchmark generated according to NASA PCoE B0005 run-to-failure parameters.",
+    "file_hashes_sha256": {
+      "nasa_pcoe_benchmark_B0005.csv": "4f454d4c083f6ce5e33eb2b6cdbeda3403a633c854a50e6bbce4c18eccdbbfbe"
+    },
+    "notes": null
+  }
+}

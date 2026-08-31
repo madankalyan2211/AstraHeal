@@ -1,0 +1,41 @@
+{
+  "input_file": "data/raw/nasa_pcoe_benchmark_B0005.csv",
+  "output_file": "data/processed/nasa_pcoe_b0005_processed.csv",
+  "total_samples": 45849,
+  "num_features": 27,
+  "cleaning_stats": {
+    "initial_rows": 45849,
+    "missing_values_imputed": 0,
+    "outliers_clipped": 0,
+    "duplicate_timestamps_dropped": 0
+  },
+  "feature_columns": [
+    "timestamp",
+    "system_id",
+    "subsystem",
+    "voltage_v",
+    "current_a",
+    "temperature_c",
+    "capacity_ah",
+    "state_of_charge",
+    "hi_soh",
+    "hi_r_int",
+    "operating_state",
+    "meta_cycle_index",
+    "meta_dataset",
+    "power_w",
+    "dv_dt",
+    "di_dt",
+    "dt_dt",
+    "est_r_int",
+    "voltage_v_rolling_mean",
+    "voltage_v_rolling_std",
+    "current_a_rolling_mean",
+    "current_a_rolling_std",
+    "temperature_c_rolling_mean",
+    "temperature_c_rolling_std",
+    "power_w_rolling_mean",
+    "power_w_rolling_std",
+    "dq_dv"
+  ]
+}

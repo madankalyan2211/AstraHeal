@@ -1,0 +1,99 @@
+{
+  "project": "AstraHeal",
+  "timestamp_utc": "2026-08-31T11:19:10.695312+00:00",
+  "python_version": "3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:54:21) [Clang 16.0.6 ]",
+  "python_executable": "/opt/anaconda3/bin/python3",
+  "test_suite_status": "ALL_PASSED",
+  "tests_run_count": 30,
+  "experiments_summary": [
+    {
+      "script": "experiments/01_ingest_and_eda.py",
+      "status": "PASSED",
+      "duration_sec": 2.6708438396453857
+    },
+    {
+      "script": "experiments/02_anomaly_detection_benchmark.py",
+      "status": "PASSED",
+      "duration_sec": 1.2740857601165771
+    },
+    {
+      "script": "experiments/03_fault_diagnosis_uncertainty.py",
+      "status": "PASSED",
+      "duration_sec": 0.9479508399963379
+    },
+    {
+      "script": "experiments/04_digital_twin_mission_simulation.py",
+      "status": "PASSED",
+      "duration_sec": 1.8309578895568848
+    },
+    {
+      "script": "experiments/05_counterfactual_recovery.py",
+      "status": "PASSED",
+      "duration_sec": 1.5710570812225342
+    },
+    {
+      "script": "experiments/06_autonomous_recovery.py",
+      "status": "PASSED",
+      "duration_sec": 1.5848119258880615
+    },
+    {
+      "script": "experiments/07_communication_aware_autonomy.py",
+      "status": "PASSED",
+      "duration_sec": 1.5100290775299072
+    },
+    {
+      "script": "experiments/08_unknown_failure_resilience.py",
+      "status": "PASSED",
+      "duration_sec": 1.588395118713379
+    },
+    {
+      "script": "experiments/09_full_benchmark.py",
+      "status": "PASSED",
+      "duration_sec": 2.1783411502838135
+    },
+    {
+      "script": "experiments/10_ablation_study.py",
+      "status": "PASSED",
+      "duration_sec": 3.0528249740600586
+    },
+    {
+      "script": "experiments/11_failure_case_analysis.py",
+      "status": "PASSED",
+      "duration_sec": 1.3483150005340576
+    },
+    {
+      "script": "experiments/12_flagship_mission.py",
+      "status": "PASSED",
+      "duration_sec": 1.5661568641662598
+    },
+    {
+      "script": "experiments/13_multi_cycle_autonomy.py",
+      "status": "PASSED",
+      "duration_sec": 14.419497013092041
+    },
+    {
+      "script": "experiments/14_controlled_recoverability.py",
+      "status": "PASSED",
+      "duration_sec": 5.292515993118286
+    },
+    {
+      "script": "experiments/15_independent_counterfactual_validation.py",
+      "status": "PASSED",
+      "duration_sec": 2.9791080951690674
+    }
+  ],
+  "stages_completed": {
+    "Stage 1": "COMPLETE",
+    "Stage 2": "COMPLETE",
+    "Stage 3": "COMPLETE",
+    "Stage 4": "COMPLETE",
+    "Stage 5": "COMPLETE",
+    "Stage 6": "COMPLETE",
+    "Stage 7": "COMPLETE",
+    "Stage 8": "COMPLETE",
+    "Stage 9": "COMPLETE",
+    "Stage 10": "COMPLETE",
+    "Stage 11": "COMPLETE",
+    "Stage 12": "COMPLETE"
+  }
+}
