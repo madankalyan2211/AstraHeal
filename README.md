@@ -1,5 +1,6 @@
 # AstraHeal — Autonomous Self-Healing Spacecraft Intelligence Platform
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22233081.svg)](https://doi.org/10.5281/zenodo.22233081)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python: 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![Status: Research Release v1.0](https://img.shields.io/badge/Status-Research%20Release%20v1.0-brightgreen.svg)](docs/RESEARCH_FREEZE.md)
@@ -147,13 +148,23 @@ python3 -m http.server 8000 --directory dashboard
 
 ## 8. Citation
 
+If you use AstraHeal in your research or mission design, please cite the official publication:
+
+### IEEE Format
+```text
+M. Thambisetty, "AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery," Zenodo, Sep. 2026. doi: 10.5281/zenodo.22233081.
+```
+
+### BibTeX Format
 ```bibtex
-@software{astraheal2026,
-  title = {AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery},
-  author = {AstraHeal Research Group},
-  year = {2026},
-  version = {1.0.0},
-  url = {https://github.com/madankalyan2211/AstraHeal}
+@article{thambisetty2026astraheal,
+  author    = {Thambisetty, Madan},
+  title     = {AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery},
+  journal   = {Zenodo},
+  year      = {2026},
+  month     = {sep},
+  doi       = {10.5281/zenodo.22233081},
+  url       = {https://doi.org/10.5281/zenodo.22233081}
 }
 ```
 
@@ -162,3 +173,4 @@ python3 -m http.server 8000 --directory dashboard
 ## 9. License
 
 This project is licensed under the [MIT License](LICENSE).
+

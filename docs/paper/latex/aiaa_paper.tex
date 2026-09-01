@@ -27,7 +27,7 @@ Spacecraft operating in Low Earth Orbit (LEO) and deep-space regimes frequently 
 \end{abstract}
 
 \section{Introduction}
-Modern space exploration increasingly demands high onboard autonomy due to orbital geometry constraints. In Low Earth Orbit (LEO), ground station occultation lasts up to 45 minutes per 95-minute orbit. For deep-space missions to Mars or Lagrange points, round-trip radio propagation latencies range from minutes to hours. Under these conditions, time-critical subsystem anomalies—such as battery impedance degradation, thermal runaway, and bus power shorts—can lead to irreversible mission loss before Earth operators can intervene.
+Modern space exploration increasingly demands high onboard autonomy due to orbital geometry constraints~\cite{chien2005autonomous}. In Low Earth Orbit (LEO), ground station occultation lasts up to 45 minutes per 95-minute orbit. Under these conditions, subsystem anomalies (impedance degradation, thermal runaway, bus shorts) can lead to mission loss before ground operators can intervene. Conventional FDIR architectures~\cite{muscettola1998remote, williams2003model} rely on rigid threshold-triggered transitions to Safe Mode, sacrificing science utility. AstraHeal addresses this challenge by introducing a safety-governed counterfactual reasoning framework that couples evidential Dirichlet uncertainty quantification~\cite{sensoy2018evidential}, multi-branch digital twin simulation lookahead~\cite{grieves2017digital, wright2020digital}, deterministic physical safety filtering, and communication-aware arbitration.
 
 \section{Problem Formulation \& Safety Invariants}
 Let the true physical spacecraft state at time $t$ be denoted by $\mathbf{x}(t) \in \mathcal{X} \subset \mathbb{R}^n$. The satellite operates under $M$ hard physical safety constraints defined by $\mathcal{S} = \left\{ \mathbf{x} \in \mathcal{X} \;\middle|\; g_m(\mathbf{x}) \le 0, \;\forall m \in \{1, \dots, M\} \right\}$. Specifically, the Electrical Power System (EPS) enforces:
@@ -39,7 +39,7 @@ Let the true physical spacecraft state at time $t$ be denoted by $\mathbf{x}(t) 
 \end{enumerate}
 
 \section{System Architecture \& Digital Twin Modeling}
-AstraHeal integrates five core modules into a closed-loop pipeline: (1) Causal Preprocessing ($\frac{dV}{dt}, \frac{dT}{dt}, \widehat{R}_{\text{int}}$); (2) Ensemble Anomaly Detection ($\text{AUROC} = 0.974$); (3) Dirichlet Evidential Bayesian Diagnosis ($u_{\text{epistemic}}, u_{\text{aleatoric}}$); (4) Zero-Mutation Digital Twin Counterfactual Lookahead (3000s horizon); and (5) Deterministic Safety Governor with Communication-Aware Urgency Arbitration.
+AstraHeal integrates five core modules into a closed-loop pipeline: (1) Causal Preprocessing ($\frac{dV}{dt}, \frac{dT}{dt}, \widehat{R}_{\text{int}}$); (2) Ensemble Anomaly Detection ($\text{AUROC} = 0.974$); (3) Dirichlet Evidential Bayesian Diagnosis ($u_{\text{epistemic}}, u_{\text{aleatoric}}$); (4) Zero-Mutation Digital Twin Counterfactual Lookahead (3000s horizon implementing standard EPS dynamics~\cite{chen2012thevenin, wertz2011space}); and (5) Deterministic Safety Governor with Communication-Aware Urgency Arbitration.
 
 \section{Experimental Benchmark Results}
 
@@ -67,6 +67,9 @@ Under perturbed physical parameters (thermal capacitance $-4\%$, radiator coupli
     \item \textbf{Top-2 Action Selection Accuracy:} $95.0\%$ ($19 / 20$)
     \item \textbf{Top-1 Action Selection Accuracy:} $55.0\%$ ($11 / 20$)
 \end{itemize}
+
+\section{Reproducibility \& Open Science}
+All 15 experiment scripts (\texttt{experiments/01\_*} through \texttt{experiments/15\_*}), 35 unit/integration test suites (\texttt{tests/}), and NASA benchmark configurations are deterministic and publicly available.
 
 \section{Conclusion}
 AstraHeal v1.0 establishes a verified foundation for uncertainty-aware, safety-governed spacecraft fault recovery within the numerical simulation domain. Complete reproducibility artifacts are available at \url{https://github.com/madankalyan2211/AstraHeal}.
