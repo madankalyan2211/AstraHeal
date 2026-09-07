@@ -1,0 +1,91 @@
+{
+  "manifest_version": "1.0.0",
+  "project": "AstraHeal Paper 2",
+  "date_utc": "2026-09-02T05:47:00Z",
+  "datasets": [
+    {
+      "name": "NASA_PCOE_BENCHMARK_B0005",
+      "source_url": "https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/",
+      "local_path": "data/raw/nasa_pcoe_benchmark_B0005.csv",
+      "sha256": "4f454d4c083f6ce5e33eb2b6cdbeda3403a633c854a50e6bbce4c18eccdbbfbe",
+      "verified": true,
+      "modality": "Empirical Li-ion electrochemical aging"
+    },
+    {
+      "name": "SPACECRAFT_EPS_SIMULATION_BENCHMARK_P2",
+      "source_type": "Deterministic high-fidelity physics simulator",
+      "local_path": "data/processed/mission_run_3orbits_processed.csv",
+      "sha256": "724bd00cd858452f677716f2ecb93ce5791a1d180d678557c0f34ba72bc22d77",
+      "verified": true,
+      "modality": "Multivariate LEO satellite EPS telemetry (Thevenin 1-RC battery, orbit mechanics, solar array, thermal)"
+    }
+  ],
+  "feature_schema": [
+    "voltage_v",
+    "current_a",
+    "temperature_c",
+    "power_w",
+    "dv_dt",
+    "dt_dt",
+    "est_r_int"
+  ],
+  "in_distribution_labels": [
+    "NOMINAL_OPERATION",
+    "BATTERY_INTERNAL_RESISTANCE_SPIKE",
+    "SOLAR_ARRAY_STRING_FAULT",
+    "THERMAL_RUNAWAY_INITIATION",
+    "PARASITIC_BUS_OVERLOAD",
+    "SENSOR_BIAS_DRIFT"
+  ],
+  "out_of_distribution_definitions": [
+    {
+      "id": "OOD-1",
+      "name": "NOVEL_UNSEEN_MODE",
+      "description": "Catastrophic ultra-low impedance bus short-circuit (500W load surge, V < 12V, severe negative transient dV/dt < -5V/s)",
+      "ground_truth_label": "UNKNOWN_FAILURE"
+    },
+    {
+      "id": "OOD-2",
+      "name": "COMPOUND_CONCURRENT_FAULT",
+      "description": "Simultaneous multi-subsystem failure: concurrent solar array string loss (50%) and exothermic thermal runaway (65W heat injection)",
+      "ground_truth_label": "UNKNOWN_FAILURE"
+    },
+    {
+      "id": "OOD-3",
+      "name": "EXTREME_THERMAL_INVERSION",
+      "description": "Deep eclipse cryogenic battery freeze below -45 deg C with nonlinear electrochemical freezeout",
+      "ground_truth_label": "UNKNOWN_FAILURE"
+    },
+    {
+      "id": "OOD-4",
+      "name": "SENSOR_SIGN_INVERSION",
+      "description": "Instrumentation wiring polarity reversal during high current discharge",
+      "ground_truth_label": "UNKNOWN_FAILURE"
+    }
+  ],
+  "data_partitions": {
+    "train_split": 0.60,
+    "validation_split": 0.20,
+    "test_split": 0.20,
+    "partition_strategy": "Scenario-level isolation (disjoint random seeds and simulation runs)",
+    "scenario_counts": {
+      "training_scenarios": 30,
+      "validation_scenarios": 10,
+      "test_scenarios_id": 10,
+      "test_scenarios_ood": 10
+    },
+    "total_samples": 2400
+  },
+  "random_seeds": {
+    "primary": 42,
+    "validation": 1337,
+    "stress_test": 2026
+  },
+  "leakage_safeguards": {
+    "temporal_leakage_prevented": true,
+    "scenario_leakage_prevented": true,
+    "preprocessing_leakage_prevented": true,
+    "threshold_leakage_prevented": true,
+    "hyperparameter_leakage_prevented": true
+  }
+}

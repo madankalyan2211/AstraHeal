@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "experiment": "EXP-P2-03",
+    "title": "OOD & Compound Failure Detection Benchmark",
+    "id_test_samples": 600,
+    "ood_test_samples": 600,
+    "tau_locked": 0.06477307269029173,
+    "random_seed": 2026
+  },
+  "model_metrics": {
+    "Evidential_Dirichlet": {
+      "auroc": 0.9422499999999999,
+      "auprc": 0.9515722273787155,
+      "fpr_at_95_tpr": 0.35833333333333334
+    },
+    "MLP_Softmax_Inverted": {
+      "auroc": 0.43130833333333335,
+      "auprc": 0.6134863790633543,
+      "fpr_at_95_tpr": 1.0
+    },
+    "RandomForest_Variance": {
+      "auroc": 0.9383680555555556,
+      "auprc": 0.9426473348796947,
+      "fpr_at_95_tpr": 0.32
+    },
+    "Isolation_Forest": {
+      "auroc": 0.9815333333333334,
+      "auprc": 0.9822525295120756,
+      "fpr_at_95_tpr": 0.115
+    }
+  },
+  "evidential_operational_rates": {
+    "locked_threshold": 0.06477307269029173,
+    "false_acceptance_rate_far": 0.23333333333333334,
+    "false_rejection_rate_frr": 0.045,
+    "true_positive_rate_tpr": 0.7666666666666666,
+    "true_negative_rate_tnr": 0.955
+  },
+  "ood_category_breakdown": {
+    "NOVEL_UNSEEN_MODE": {
+      "samples": 150,
+      "mean_epistemic": 1.0,
+      "std_epistemic": 0.0,
+      "detection_rate_at_locked_tau": 1.0
+    },
+    "COMPOUND_CONCURRENT_FAULT": {
+      "samples": 150,
+      "mean_epistemic": 0.30113580615230273,
+      "std_epistemic": 0.09227384946017622,
+      "detection_rate_at_locked_tau": 1.0
+    },
+    "EXTREME_THERMAL_INVERSION": {
+      "samples": 150,
+      "mean_epistemic": 0.9994019460487649,
+      "std_epistemic": 0.0003883149659393271,
+      "detection_rate_at_locked_tau": 1.0
+    },
+    "SENSOR_SIGN_INVERSION": {
+      "samples": 150,
+      "mean_epistemic": 0.05700107293332084,
+      "std_epistemic": 0.026568418589507762,
+      "detection_rate_at_locked_tau": 0.06666666666666667
+    }
+  }
+}

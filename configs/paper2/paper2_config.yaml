@@ -1,0 +1,101 @@
+# AstraHeal Paper 2 — Research Configuration Specification
+# "Evidential Uncertainty-Aware Fault Diagnosis for Autonomous Spacecraft Health Management"
+
+project:
+  name: "AstraHeal Paper 2"
+  version: "2.0.0-research"
+  date: 2026
+  random_seeds:
+    primary: 42
+    validation: 1337
+    test: 2026
+
+features:
+  channels:
+    - "voltage_v"
+    - "current_a"
+    - "temperature_c"
+    - "power_w"
+    - "dv_dt"
+    - "dt_dt"
+    - "est_r_int"
+
+failure_catalog:
+  known_modes:
+    - id: "BATTERY_INTERNAL_RESISTANCE_SPIKE"
+      subsystem: "EPS_BATTERY"
+      criticality: "HIGH"
+    - id: "SOLAR_ARRAY_STRING_FAULT"
+      subsystem: "EPS_SOLAR"
+      criticality: "MEDIUM"
+    - id: "THERMAL_RUNAWAY_INITIATION"
+      subsystem: "EPS_THERMAL"
+      criticality: "CRITICAL"
+    - id: "PARASITIC_BUS_OVERLOAD"
+      subsystem: "EPS_DISTRIBUTION"
+      criticality: "HIGH"
+    - id: "SENSOR_BIAS_DRIFT"
+      subsystem: "EPS_INSTRUMENTATION"
+      criticality: "LOW"
+    - id: "NOMINAL_OPERATION"
+      subsystem: "EPS_SYSTEM"
+      criticality: "NONE"
+
+  ood_categories:
+    - id: "OOD-1"
+      name: "NOVEL_UNSEEN_MODE"
+      description: "Severe catastrophic power bus short-circuit (500W load surge, V < 12V, severe negative transient dV/dt < -5V/s)"
+    - id: "OOD-2"
+      name: "COMPOUND_CONCURRENT_FAULT"
+      description: "Concurrent solar string failure (50% generation loss) and exothermic thermal runaway (65W heat injection)"
+    - id: "OOD-3"
+      name: "EXTREME_THERMAL_INVERSION"
+      description: "Deep eclipse cryogenic freeze below -45C with severe impedance surge"
+    - id: "OOD-4"
+      name: "SENSOR_SIGN_INVERSION"
+      description: "Sensor instrumentation wiring sign reversal on current telemetry"
+
+model_parameters:
+  evidential:
+    confidence_cutoff: 0.55
+    max_epistemic_for_known: 0.45
+    min_anomaly_score: 0.45
+    evidence_sharpness: 2.5
+    distance_metric: "mahalanobis"
+  random_forest:
+    n_estimators: 100
+    max_depth: 8
+    random_state: 42
+  mlp_classifier:
+    hidden_layer_sizes: [128, 64]
+    max_iter: 500
+    activation: "relu"
+    random_state: 42
+  physics_rules:
+    temp_runaway_threshold_c: 45.0
+    temp_rate_threshold_c_per_s: 0.05
+    resistance_spike_multiplier: 2.0
+    bus_overload_current_a: 12.0
+
+experiments:
+  exp01_known_faults:
+    n_samples_per_class: 200
+    test_split: 0.20
+    val_split: 0.20
+    train_split: 0.60
+  exp02_uncertainty:
+    noise_levels: [0.00, 0.05, 0.10, 0.20]
+  exp03_ood:
+    locked_epistemic_threshold: 0.45
+    n_id_samples: 600
+    n_ood_samples: 600
+  exp04_noise:
+    noise_grid: [0.00, 0.02, 0.05, 0.10, 0.15, 0.20, 0.25]
+    n_test_samples: 500
+  exp05_ablation:
+    configurations:
+      - "M0_FULL"
+      - "M1_NO_EVIDENTIAL"
+      - "M2_EUCLIDEAN_METRIC"
+      - "M3_NO_PHYSICS_PRIORS"
+      - "M4_STATIC_FEATURES_ONLY"

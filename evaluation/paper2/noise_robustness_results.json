@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "experiment": "EXP-P2-04",
+    "title": "Telemetry Noise Robustness Benchmark",
+    "noise_levels": [
+      0.0,
+      0.02,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25
+    ],
+    "samples_per_noise_level": 300,
+    "random_seed": 2026,
+    "tau_locked": 0.0648
+  },
+  "results_by_noise": {
+    "sigma_0.00": {
+      "sigma": 0.0,
+      "models": {
+        "PhysicsRules": {
+          "accuracy": 0.6633333333333333,
+          "macro_f1": 0.5472154963680388,
+          "ece": 0.2630555806938162
+        },
+        "RandomForest": {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "ece": 0.022617810954830342
+        },
+        "MLP_Softmax": {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "ece": 0.0038982833343225052
+        },
+        "EvidentialDirichlet": {
+          "accuracy": 0.9333333333333333,
+          "macro_f1": 0.9311010059253135,
+          "ece": 0.029007528629583407,
+          "mean_epistemic": 0.03923193133082579,
+          "mean_aleatoric": 0.0885786904507642,
+          "false_ood_rate": 0.043333333333333335
+        }
+      }
+    },
+    "sigma_0.02": {
+      "sigma": 0.02,
+      "models": {
+        "PhysicsRules": {
+          "accuracy": 0.6633333333333333,
+          "macro_f1": 0.5405714285714286,
+          "ece": 0.2743982977806509
+        },
+        "RandomForest": {
+          "accuracy": 0.9933333333333333,
+          "macro_f1": 0.9933306655995732,
+          "ece": 0.040602889495240685
+        },
+        "MLP_Softmax": {
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "ece": 0.009764942567822128
+        },
+        "EvidentialDirichlet": {
+          "accuracy": 0.91,
+          "macro_f1": 0.9039999999999999,
+          "ece": 0.05351913938423326,
+          "mean_epistemic": 0.04145694357396169,
+          "mean_aleatoric": 0.09026721558708119,
+          "false_ood_rate": 0.04666666666666667
+        }
+      }
+    },
+    "sigma_0.05": {
+      "sigma": 0.05,
+      "models": {
+        "PhysicsRules": {
+          "accuracy": 0.6,
+          "macro_f1": 0.5072083879423329,
+          "ece": 0.3059398856045917
+        },
+        "RandomForest": {
+          "accuracy": 0.9766666666666667,
+          "macro_f1": 0.976608187134503,
+          "ece": 0.09207760006731967
+        },
+        "MLP_Softmax": {
+          "accuracy": 0.9733333333333334,
+          "macro_f1": 0.9732905982905984,
+          "ece": 0.00782595384705632
+        },
+        "EvidentialDirichlet": {
+          "accuracy": 0.8333333333333334,
+          "macro_f1": 0.8308336949902942,
+          "ece": 0.11472161520387218,
+          "mean_epistemic": 0.043148641771577734,
+          "mean_aleatoric": 0.1100674721949842,
+          "false_ood_rate": 0.07666666666666666
+        }
+      }
+    },
+    "sigma_0.10": {
+      "sigma": 0.1,
+      "models": {
+        "PhysicsRules": {
+          "accuracy": 0.5666666666666667,
+          "macro_f1": 0.4951842122987809,
+          "ece": 0.2969731189541527
+        },
+        "RandomForest": {
+          "accuracy": 0.89,
+          "macro_f1": 0.8894210712108084,
+          "ece": 0.08112749110136414
+        },
+        "MLP_Softmax": {
+          "accuracy": 0.8833333333333333,
+          "macro_f1": 0.8823791801672568,
+          "ece": 0.0803734510545025
+        },
+        "EvidentialDirichlet": {
+          "accuracy": 0.83,
+          "macro_f1": 0.8265271020688978,
+          "ece": 0.09393563028609277,
+          "mean_epistemic": 0.05114735992419688,
+          "mean_aleatoric": 0.1449951006139771,
+          "false_ood_rate": 0.18333333333333332
+        }
+      }
+    },
+    "sigma_0.15": {
+      "sigma": 0.15,
+      "models": {
+        "PhysicsRules": {
+          "accuracy": 0.5433333333333333,
+          "macro_f1": 0.4735855728429986,
+          "ece": 0.31252729037135296
+        },
+        "RandomForest": {
+          "accuracy": 0.8166666666666667,
+          "macro_f1": 0.8158953484345197,
+          "ece": 0.055457926947406345
+        },
+        "MLP_Softmax": {
+          "accuracy": 0.8233333333333334,
+          "macro_f1": 0.8231396808571283,
+          "ece": 0.14095403927931527
+        },
+        "EvidentialDirichlet": {
+          "accuracy": 0.7766666666666666,
+          "macro_f1": 0.7681134833940196,
+          "ece": 0.13225297254072357,
+          "mean_epistemic": 0.06778917290149596,
+          "mean_aleatoric": 0.17272738343510607,
+          "false_ood_rate": 0.35333333333333333
+        }
+      }
+    },
+    "sigma_0.20": {
+      "sigma": 0.2,
+      "models": {
+        "PhysicsRules": {
+          "accuracy": 0.5166666666666667,
+          "macro_f1": 0.44764143543341856,
+          "ece": 0.32222797332671704
+        },
+        "RandomForest": {
+          "accuracy": 0.7833333333333333,
+          "macro_f1": 0.7810064059627252,
+          "ece": 0.07122285166037454
+        },
+        "MLP_Softmax": {
+          "accuracy": 0.7533333333333333,
+          "macro_f1": 0.7557022368239741,
+          "ece": 0.19274024779045554
+        },
+        "EvidentialDirichlet": {
+          "accuracy": 0.7666666666666667,
+          "macro_f1": 0.7457763217763218,
+          "ece": 0.12737586290504924,
+          "mean_epistemic": 0.09309956465987469,
+          "mean_aleatoric": 0.20777830021843224,
+          "false_ood_rate": 0.5066666666666667
+        }
+      }
+    },
+    "sigma_0.25": {
+      "sigma": 0.25,
+      "models": {
+        "PhysicsRules": {
+          "accuracy": 0.49666666666666665,
+          "macro_f1": 0.4114655186083757,
+          "ece": 0.346391551460161
+        },
+        "RandomForest": {
+          "accuracy": 0.7466666666666667,
+          "macro_f1": 0.7434959842138059,
+          "ece": 0.076280092212432
+        },
+        "MLP_Softmax": {
+          "accuracy": 0.68,
+          "macro_f1": 0.6888459179078231,
+          "ece": 0.25810825988701125
+        },
+        "EvidentialDirichlet": {
+          "accuracy": 0.7466666666666667,
+          "macro_f1": 0.6230897063773698,
+          "ece": 0.12848817723552208,
+          "mean_epistemic": 0.1289835606326551,
+          "mean_aleatoric": 0.24120056209866997,
+          "false_ood_rate": 0.64
+        }
+      }
+    }
+  }
+}

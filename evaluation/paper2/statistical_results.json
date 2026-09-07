@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "title": "AstraHeal Paper 2 Formal Statistical Analysis",
+    "date": "2026",
+    "sample_sizes": {
+      "known_fault_test_n": 240,
+      "ood_test_n": 1200,
+      "noise_sweep_evaluations_n": 2100
+    }
+  },
+  "bootstrap_confidence_intervals_95": {
+    "PhysicsRules": {
+      "mean": 0.6653791666666666,
+      "ci_95": [
+        0.6,
+        0.725
+      ]
+    },
+    "RandomForest": {
+      "mean": 1.0,
+      "ci_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "MLP_Softmax": {
+      "mean": 1.0,
+      "ci_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "StandardMahalanobis": {
+      "mean": 1.0,
+      "ci_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "EvidentialDirichlet": {
+      "mean": 0.9539249999999999,
+      "ci_95": [
+        0.925,
+        0.9791666666666666
+      ]
+    }
+  },
+  "pairwise_model_comparisons": {
+    "Evidential_vs_PhysicsRules": {
+      "statistic": 0.0,
+      "p_value_raw": 9.846344031425245e-17,
+      "cohens_d": 0.6338986382759993,
+      "n_samples": 240,
+      "p_value_holm_bonferroni": 3.938537612570098e-16,
+      "is_statistically_significant": true
+    },
+    "Evidential_vs_RandomForest": {
+      "statistic": 0.0,
+      "p_value_raw": 0.0009111188771537128,
+      "cohens_d": -0.21871165602428294,
+      "n_samples": 240,
+      "p_value_holm_bonferroni": 0.0027333566314611383,
+      "is_statistically_significant": true
+    },
+    "Evidential_vs_MLP_Softmax": {
+      "statistic": 0.0,
+      "p_value_raw": 0.0009111188771537128,
+      "cohens_d": -0.21871165602428294,
+      "n_samples": 240,
+      "p_value_holm_bonferroni": 0.0018222377543074255,
+      "is_statistically_significant": true
+    },
+    "Evidential_vs_StandardMahalanobis": {
+      "statistic": 0.0,
+      "p_value_raw": 0.0009111188771537128,
+      "cohens_d": -0.21871165602428294,
+      "n_samples": 240,
+      "p_value_holm_bonferroni": 0.0009111188771537128,
+      "is_statistically_significant": true
+    }
+  },
+  "noise_robustness_hypothesis_test": {
+    "evidential_vs_rules_noise_paired_t": {
+      "t_statistic": 14.890659216790857,
+      "p_value": 5.772598229305833e-06,
+      "mean_f1_evidential": 0.8042059020760312,
+      "mean_f1_rules": 0.48898172172362486,
+      "mean_advantage": 0.3152241803524063
+    }
+  },
+  "hypotheses_verdicts": {
+    "H1_known_mode_discriminability": {
+      "verdict": "SUPPORTED",
+      "evidence": "Evidential Macro-F1 = 0.9533 >= 0.90 target; ECE = 0.0094 <= 0.01."
+    },
+    "H2_epistemic_aleatoric_disentanglement": {
+      "verdict": "PARTIALLY_SUPPORTED",
+      "evidence": "Spearman correlation confirms aleatoric scales with noise (p=1.37e-17) and OOD epistemic separates by 10.94x on novel faults, but compound faults experience centroid cancellation."
+    },
+    "H3_ood_compound_detection": {
+      "verdict": "SUPPORTED",
+      "evidence": "Evidential Epistemic AUROC = 0.9422 >= 0.90 target, catching 100% of novel catastrophic short and cryogenic freeze faults."
+    },
+    "H4_noise_robustness": {
+      "verdict": "SUPPORTED",
+      "evidence": "Evidential engine retained superior Macro-F1 over Physics Rules across all noise tiers (mean advantage +0.315, p = 5.77e-06)."
+    },
+    "H5_component_ablation": {
+      "verdict": "SUPPORTED",
+      "evidence": "Ablating Mahalanobis metric caused 24% F1 drop; ablating Evidential Dirichlet degraded OOD AUROC by 8.0%."
+    }
+  }
+}

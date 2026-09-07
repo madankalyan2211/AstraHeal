@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "experiment": "EXP-P2-05",
+    "title": "Systematic Component Ablation Study",
+    "known_test_samples": 240,
+    "ood_test_samples": 200,
+    "random_seed": 2026
+  },
+  "ablation_results": {
+    "M0_FULL": {
+      "macro_f1": 0.9532834315443011,
+      "accuracy": 0.9541666666666667,
+      "ece": 0.017856786812799043,
+      "ood_auroc": 0.8692395833333334,
+      "thermal_runaway_f1": 1.0,
+      "r_int_spike_f1": 1.0
+    },
+    "M1_NO_EVIDENTIAL": {
+      "macro_f1": 0.9532834315443011,
+      "accuracy": 0.9541666666666667,
+      "ece": 0.017856786812799043,
+      "ood_auroc": 0.7894687500000002,
+      "thermal_runaway_f1": 1.0,
+      "r_int_spike_f1": 1.0
+    },
+    "M2_EUCLIDEAN_METRIC": {
+      "macro_f1": 0.7132055187610743,
+      "accuracy": 0.7708333333333334,
+      "ece": 0.22020372914939734,
+      "ood_auroc": 0.6869895833333334,
+      "thermal_runaway_f1": 0.6851851851851852,
+      "r_int_spike_f1": 0.0
+    },
+    "M3_NO_PHYSICS_PRIORS": {
+      "macro_f1": 0.20474430954780298,
+      "accuracy": 0.3333333333333333,
+      "ece": 0.0465,
+      "ood_auroc": 0.7811145833333333,
+      "thermal_runaway_f1": 0.0,
+      "r_int_spike_f1": 0.34934497816593885
+    },
+    "M4_STATIC_FEATURES_ONLY": {
+      "macro_f1": 0.9491161137342266,
+      "accuracy": 0.95,
+      "ece": 0.13173465445446228,
+      "ood_auroc": 0.9069895833333333,
+      "thermal_runaway_f1": 1.0,
+      "r_int_spike_f1": 0.9873417721518988
+    }
+  }
+}
