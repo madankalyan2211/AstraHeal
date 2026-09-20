@@ -21,14 +21,44 @@ keywords:
   - aerospace software
   - physical invariants
   - fail-closed
-preferred-citation:
-  type: article
-  authors:
-    - family-names: "Thambisetty"
-      given-names: "Madan"
-  title: "AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery"
-  journal: "Zenodo"
-  year: 2026
-  month: 9
-  doi: "10.5281/zenodo.22233081"
-  url: "https://doi.org/10.5281/zenodo.22233081"
+references:
+  - type: article
+    authors:
+      - family-names: "Thambisetty"
+        given-names: "Madan"
+    title: "AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery"
+    journal: "Zenodo"
+    year: 2026
+    month: 9
+    doi: "10.5281/zenodo.22233081"
+    url: "https://doi.org/10.5281/zenodo.22233081"
+  - type: article
+    authors:
+      - family-names: "Thambisetty"
+        given-names: "Madan"
+    title: "Evidential Uncertainty-Aware Fault Diagnosis for Autonomous Spacecraft Health Management"
+    journal: "Zenodo"
+    year: 2026
+    month: 9
+    doi: "10.5281/zenodo.22849042"
+    url: "https://doi.org/10.5281/zenodo.22849042"
+  - type: article
+    authors:
+      - family-names: "Thambisetty"
+        given-names: "Madan"
+    title: "AstraHeal: Deterministic Safety Gating for Uncertainty-Aware Autonomous Spacecraft Fault Recovery"
+    journal: "Zenodo"
+    year: 2026
+    month: 9
+    doi: "10.5281/zenodo.22855867"
+    url: "https://doi.org/10.5281/zenodo.22855867"
+  - type: article
+    authors:
+      - family-names: "Thambisetty"
+        given-names: "Madan"
+    title: "AstraHeal: Robust Multi-Cycle Autonomous Fault Recovery Under Perturbed Spacecraft Conditions"
+    journal: "Zenodo"
+    year: 2026
+    month: 9
+    doi: "10.5281/zenodo.22862532"
+    url: "https://doi.org/10.5281/zenodo.22862532"
