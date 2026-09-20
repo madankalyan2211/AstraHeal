@@ -12,6 +12,7 @@
 This LaTeX package contains all source files, bibliographies, and high-resolution publication figures required to compile the complete paper:
 
 - **`main.tex`**: Complete IEEEtran two-column LaTeX source code with all mathematical formulations, benchmark tables, IEEE citations, and embedded figure references.
+- **`paper_standard.tex`**: Self-contained IEEEtran standard LaTeX manuscript with embedded bibliography for immediate, single-file compilation without external BibTeX dependencies.
 - **`references.bib`**: BibTeX bibliography with full citations formatted to IEEE standards.
 - **`figures/`**: Directory containing all 9 publication-grade figures:
   - `fig0_dataset_telemetry_profiles.png`: 4-panel dataset telemetry profiles (NASA PCoE & EPS Digital Twin)

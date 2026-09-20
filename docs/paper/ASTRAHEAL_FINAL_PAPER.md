@@ -1,6 +1,6 @@
 # AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery
 
-**Authors**: Lead Systems & Autonomous Aerospace Researchers  
+**Author**: Madan Kalyan Thambisetty (Autonomous Systems & Aerospace Software Research)  
 **Release**: `AstraHeal v1.0 — Research Release`  
 **Target Venue**: IEEE Aerospace Conference / AIAA Scitech Forum  
 **Date**: August 2026  
@@ -293,3 +293,26 @@ python3 -m http.server 8000 --directory dashboard
 ## 20. Conclusion & Future HIL Validation
 
 AstraHeal v1.0 establishes a verified foundation for uncertainty-aware, safety-governed spacecraft autonomy. By unifying Dirichlet evidential Bayesian inference, non-mutating digital twin counterfactual branching, deterministic physical safety gating, and communication-aware arbitration, the platform prevents unsafe action execution while preserving critical science capabilities. Future work will deploy AstraHeal onto physical CubeSat embedded avionics connected to real Li-ion cells inside a Thermal Vacuum Chamber (TVAC).
+
+---
+
+## 21. References
+
+1. B. C. Williams, M. D. Ingham, S. H. Chung, and M. W. Hofbaur, "Model-based programming of intelligent embedded systems and robotic space explorers," *Proceedings of the IEEE*, vol. 91, no. 1, pp. 212–237, 2003.
+2. S. Chien et al., "Autonomous sciencecraft experiment on the EO-1 spacecraft," *IEEE Intelligent Systems*, vol. 20, no. 5, pp. 16–24, 2005.
+3. N. Muscettola, P. P. Nayak, B. Pell, and B. C. Williams, "Remote agent: To boldly go where no AI has gone before," *Artificial Intelligence*, vol. 103, no. 1-2, pp. 5–47, 1998.
+4. K. Hundman, V. Constantinou, C. Laporte, I. Colwell, and T. Soderstrom, "Detecting spacecraft anomalies using LSTMs and nonparametric dynamic thresholding," in *Proc. 24th ACM SIGKDD Int. Conf. Knowledge Discovery & Data Mining*, pp. 387–395, 2018.
+5. M. Sensoy, L. Kaplan, and M. Kandemir, "Evidential deep learning to quantify classification uncertainty," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 31, pp. 3179–3189, 2018.
+6. A. Malinin and M. Gales, "Predictive uncertainty estimation via prior networks," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 31, pp. 7047–7058, 2018.
+7. B. Lakshminarayanan, A. Pritzel, and C. Blundell, "Simple and scalable predictive uncertainty estimation using deep ensembles," in *Advances in Neural Information Processing Systems (NeurIPS)*, vol. 30, pp. 6402–6413, 2017.
+8. C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, "On calibration of modern neural networks," in *International Conference on Machine Learning (ICML)*, pp. 1321–1330, 2017.
+9. M. Alshiekh, R. Bloem, R. Ehlers, B. Könighofer, S. Niekum, and U. Topcu, "Safe reinforcement learning via shielding," in *Proc. AAAI Conf. on Artificial Intelligence*, vol. 32, no. 1, 2018.
+10. L. Sha, "Using simplicity to control complexity," *IEEE Software*, vol. 18, no. 4, pp. 20–28, 2001.
+11. A. D. Ames, X. Xu, J. W. Grizzle, and P. Tabuada, "Control barrier functions: Theory and applications," in *European Control Conference (ECC)*, pp. 362–373, 2016.
+12. M. Chen and G. A. Rincon-Mora, "Accurate electrical battery model capable of predicting runtime and IV performance," *IEEE Transactions on Energy Conversion*, vol. 21, no. 2, pp. 504–511, 2006.
+13. J. R. Wertz, D. F. Everett, and J. J. Puschell, *Space Mission Engineering: The New SMAD*, Microcosm Press, 2011.
+14. J. Pearl, "Causal inference in statistics: An overview," *Statistics Surveys*, vol. 3, pp. 96–146, 2009.
+15. F. T. Liu, K. M. Ting, and Z.-H. Zhou, "Isolation forest," in *Eighth IEEE International Conference on Data Mining*, pp. 413–422, 2008.
+16. M. Grieves and J. Vickers, "Digital twin: Mitigating unpredictable, undesirable emergent behavior in complex systems," in *Transdisciplinary Perspectives on System Complexity*, pp. 85–113, 2017.
+17. L. Wright and S. Davidson, "How to tell the difference between a model and a digital twin," *Adv. Modeling and Simulation in Eng. Sciences*, vol. 7, no. 1, pp. 1–13, 2020.
+18. M. Thambisetty, "AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery," *Zenodo*, Sep. 2026. doi: 10.5281/zenodo.22233081.

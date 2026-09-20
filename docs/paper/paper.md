@@ -1,7 +1,8 @@
 # AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery
 
-**Authors**: AstraHeal Research Group  
-**Affiliation**: Independent Autonomous Aerospace Systems Research  
+**Author**: Madan Kalyan Thambisetty  
+**Affiliation**: Autonomous Systems & Aerospace Software Research  
+**Codebase**: [https://github.com/madankalyan2211/AstraHeal](https://github.com/madankalyan2211/AstraHeal)  
 **Date**: August 2026  
 
 ---

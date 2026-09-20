@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AstraHeal — Autonomous Self-Healing Spacecraft Intelligence Platform</title>
+  <title>AstraHeal Mission Operations Center — Papers 1, 2, & 3 Research Suite</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <!-- Disclaimer Header -->
-  <div class="simulation-banner" id="disclaimer-banner">
-    <div class="banner-badge">RESEARCH DIGITAL TWIN</div>
-    <div class="banner-text">
-      <strong>SIMULATION — NOT FLIGHT VALIDATED:</strong> Visualizing high-fidelity orbital spacecraft power digital twin telemetry. Does not directly control an active flight spacecraft.
+
+  <!-- Top Simulation Banner -->
+  <div class="simulation-banner">
+    <div class="banner-left">
+      <span class="banner-badge">RESEARCH DIGITAL TWIN</span>
+      <span><strong>ASTRAHEAL FLIGHT SIMULATOR:</strong> High-fidelity 12U CubeSat Electrical Power System (LEO 550 km). Validating Papers 1, 2, and 3.</span>
+    </div>
+    <div class="banner-mode">
+      <span class="mode-dot" id="connection-dot"></span>
+      <span id="connection-status-text">CONNECTING TO TWIN...</span>
     </div>
   </div>
 
@@ -32,197 +37,461 @@
       <div class="header-status-group">
         <div class="status-pill safe" id="mission-status-pill">
           <span class="status-dot"></span>
-          <span id="mission-status-text">MISSION STABILIZED</span>
+          <span id="mission-status-text">MISSION NOMINAL</span>
         </div>
-        <div class="status-pill dark" id="orbit-info">
-          <span>LEO Orbit • 550 km</span>
+        <div class="status-pill dark" id="orbit-info-pill">
+          <span id="orbit-info-text">LEO 550 km • MET: 00:00:00</span>
         </div>
         <div class="status-pill alert" id="comm-status-pill">
-          <span>📡 Blackout Occultation</span>
+          <span id="comm-status-text">📡 Blackout Occultation</span>
         </div>
       </div>
     </header>
 
-    <!-- Main Grid -->
-    <main class="dashboard-grid">
-      <!-- Left Column: Primary Telemetry & Live Charts -->
-      <section class="grid-col col-main">
-        <!-- Telemetry Metric Cards -->
-        <div class="metrics-row">
-          <div class="metric-card">
-            <div class="metric-label">Bus Voltage</div>
-            <div class="metric-value" id="val-voltage">31.8 <span class="unit">V</span></div>
-            <div class="metric-sub safe">Nominal (Limit: 22.0V)</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Battery Current</div>
-            <div class="metric-value" id="val-current">7.4 <span class="unit">A</span></div>
-            <div class="metric-sub safe">Within Rating (&lt;40A)</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Battery Core Temp</div>
-            <div class="metric-value" id="val-temp">18.9 <span class="unit">°C</span></div>
-            <div class="metric-sub safe">Thermal Margin: 27.1°C</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">State of Charge</div>
-            <div class="metric-value" id="val-soc">95.4 <span class="unit">%</span></div>
-            <div class="metric-sub safe">Reserve Floor: 15.0%</div>
-          </div>
-        </div>
+    <!-- Top Navigation Tabs -->
+    <nav class="nav-tabs-bar" role="tablist">
+      <button class="tab-btn active" data-tab="tab-overview" id="btn-tab-overview">
+        <span>🌐 Mission Overview</span>
+        <span class="tab-badge">LIVE MOC</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-paper1" id="btn-tab-paper1">
+        <span>🧭 Paper 1: Counterfactual Planning</span>
+        <span class="tab-badge">BRANCHING</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-paper2" id="btn-tab-paper2">
+        <span>🔬 Paper 2: Evidential Diagnosis</span>
+        <span class="tab-badge">DIRICHLET / OOD</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-paper3" id="btn-tab-paper3">
+        <span>🛡️ Paper 3: Deterministic Safety Governor</span>
+        <span class="tab-badge">GATING</span>
+      </button>
+    </nav>
 
-        <!-- Telemetry Charts -->
-        <div class="panel-card chart-panel">
-          <div class="panel-header">
-            <h2 class="panel-title">Mission Elapsed Telemetry (Full 3-Orbit Horizon)</h2>
-            <div class="chart-legend-custom">
-              <span class="legend-item"><span class="legend-color volt"></span> Voltage (V)</span>
-              <span class="legend-item"><span class="legend-color temp"></span> Temp (°C)</span>
-              <span class="legend-item"><span class="legend-color soc"></span> SoC (%)</span>
+    <!-- Global Telemetry Highlight Cards -->
+    <section class="metrics-row">
+      <div class="metric-card">
+        <div class="metric-label">Bus Voltage</div>
+        <div class="metric-value" id="val-voltage">28.4 <span class="unit">V</span></div>
+        <div class="metric-sub safe" id="sub-voltage">Nominal (Limit: ≥22.0V)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Battery Current</div>
+        <div class="metric-value" id="val-current">8.2 <span class="unit">A</span></div>
+        <div class="metric-sub safe" id="sub-current">Within Rating (&lt;40.0A)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Battery Temperature</div>
+        <div class="metric-value" id="val-temp">24.5 <span class="unit">°C</span></div>
+        <div class="metric-sub safe" id="sub-temp">Thermal Margin: +21.5°C</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">State of Charge</div>
+        <div class="metric-value" id="val-soc">88.5 <span class="unit">%</span></div>
+        <div class="metric-sub safe" id="sub-soc">Reserve Floor: 15.0%</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Solar Generation</div>
+        <div class="metric-value" id="val-solar">185.0 <span class="unit">W</span></div>
+        <div class="metric-sub info" id="sub-solar">Sunlight Phase</div>
+      </div>
+    </section>
+
+    <!-- TAB 0: MISSION OVERVIEW -->
+    <div class="tab-content active" id="tab-overview">
+      <div class="dashboard-grid">
+        <!-- Left: Rolling Charts -->
+        <div class="grid-col">
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title">📈 Real-Time EPS Power & Voltage Rolling Stream</div>
+              <span class="panel-pill">SAMPLING: 2.0s</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-power"></canvas>
             </div>
           </div>
-          <div class="chart-container">
-            <canvas id="telemetryChart"></canvas>
+
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title">🌡️ Battery Thermal & State-of-Charge Dynamics</div>
+              <span class="panel-pill">DUAL Y-AXIS</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-thermal"></canvas>
+            </div>
           </div>
         </div>
 
-        <!-- Counterfactual Action Comparison Table -->
-        <div class="panel-card">
-          <div class="panel-header">
-            <h2 class="panel-title">Counterfactual Lookahead Simulation (Forked Digital Twin Branches)</h2>
-            <div class="panel-tag">Horizon: 3000s</div>
-          </div>
-          <div class="table-wrapper">
-            <table class="data-table" id="counterfactual-table">
-              <thead>
-                <tr>
-                  <th>Action ID</th>
-                  <th>Action Type</th>
-                  <th>Predicted Max Temp</th>
-                  <th>Predicted Min Volt</th>
-                  <th>Payload Utility</th>
-                  <th>Safety Governor</th>
-                  <th>Score</th>
-                </tr>
-              </thead>
-              <tbody id="counterfactual-tbody">
-                <!-- Dynamically populated -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- Right Column: Intelligence & Safety Governor -->
-      <section class="grid-col col-side">
-        <!-- Diagnostic & Uncertainty Card -->
-        <div class="panel-card intelligence-panel">
-          <div class="panel-header">
-            <h2 class="panel-title">Evidential Diagnosis & Uncertainty</h2>
-          </div>
-          <div class="diag-status-badge warning" id="diag-badge">
-            <span class="diag-title">UNKNOWN_FAILURE</span>
-            <span class="diag-sub" id="diag-detail">NOVEL_UNSEEN_ANOMALY (High Impedance)</span>
-          </div>
-
-          <div class="uncertainty-bars">
-            <div class="unc-row">
-              <div class="unc-header">
-                <span>Epistemic Uncertainty (OOD Distance)</span>
-                <span class="unc-val" id="val-epistemic">1.000</span>
+        <!-- Right: Subsystems & Console -->
+        <div class="grid-col">
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title">🛰️ Subsystem Health Matrix</div>
+              <span class="panel-pill">EPS 12U</span>
+            </div>
+            <div class="subsystem-grid">
+              <div class="subsystem-item">
+                <div class="subsystem-name">BATTERY PACK</div>
+                <div class="subsystem-status ok" id="stat-batt">NOMINAL</div>
               </div>
-              <div class="progress-bar-bg">
-                <div class="progress-bar-fill red" id="bar-epistemic" style="width: 100%"></div>
+              <div class="subsystem-item">
+                <div class="subsystem-name">SOLAR ARRAYS</div>
+                <div class="subsystem-status ok" id="stat-solar">ILLUMINATED</div>
+              </div>
+              <div class="subsystem-item">
+                <div class="subsystem-name">PDU REGULATOR</div>
+                <div class="subsystem-status ok" id="stat-pdu">STABLE</div>
+              </div>
+              <div class="subsystem-item">
+                <div class="subsystem-name">THERMAL SYSTEM</div>
+                <div class="subsystem-status ok" id="stat-thermal">OPTIMAL</div>
+              </div>
+              <div class="subsystem-item">
+                <div class="subsystem-name">COMMUNICATION</div>
+                <div class="subsystem-status warn" id="stat-comm">OCCULTATION</div>
+              </div>
+              <div class="subsystem-item">
+                <div class="subsystem-name">SCIENCE PAYLOAD</div>
+                <div class="subsystem-status ok" id="stat-payload">ACTIVE (100%)</div>
               </div>
             </div>
-
-            <div class="unc-row">
-              <div class="unc-header">
-                <span>Aleatoric Uncertainty (Entropy)</span>
-                <span class="unc-val" id="val-aleatoric">0.025</span>
-              </div>
-              <div class="progress-bar-bg">
-                <div class="progress-bar-fill emerald" id="bar-aleatoric" style="width: 2.5%"></div>
-              </div>
-            </div>
           </div>
 
-          <div class="unc-notice" id="unc-notice">
-            ⚠️ <strong>OOD Notice:</strong> High epistemic uncertainty detected (&gt;0.50). Autonomous actions restricted to conservative safe standby & verified non-disruptive mitigations.
-          </div>
-        </div>
-
-        <!-- Deterministic Safety Governor Decision -->
-        <div class="panel-card safety-panel">
-          <div class="panel-header">
-            <h2 class="panel-title">Deterministic Safety Governor</h2>
-            <div class="governor-badge approved">AUTHORIZED</div>
-          </div>
-          <div class="governor-body">
-            <div class="governor-rule-item passed">
-              <span class="rule-icon">✓</span>
-              <span class="rule-name">Battery Temp &le; 46.0°C</span>
-              <span class="rule-margin">+27.1°C Margin</span>
+          <div class="panel-card">
+            <div class="panel-header">
+              <div class="panel-title">📜 Flight Telemetry & Intelligence Event Log</div>
+              <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.7rem;" id="btn-clear-logs">Clear</button>
             </div>
-            <div class="governor-rule-item passed">
-              <span class="rule-icon">✓</span>
-              <span class="rule-name">Bus Voltage &ge; 22.0V</span>
-              <span class="rule-margin">+9.0V Margin</span>
-            </div>
-            <div class="governor-rule-item passed">
-              <span class="rule-icon">✓</span>
-              <span class="rule-name">Battery Current &le; 40.0A</span>
-              <span class="rule-margin">+32.6A Margin</span>
-            </div>
-            <div class="governor-rule-item passed">
-              <span class="rule-icon">✓</span>
-              <span class="rule-name">Battery Reserve SoC &ge; 15.0%</span>
-              <span class="rule-margin">+75.4% Margin</span>
-            </div>
-          </div>
-
-          <div class="selected-plan-box">
-            <div class="plan-label">SELECTED RECOVERY ACTION</div>
-            <div class="plan-title" id="selected-plan-title">ACT-00-NOOP (CONTINUE_NOMINAL)</div>
-            <div class="plan-rationale" id="selected-plan-rationale">
-              Evaluated counterfactual branches; verified safe thermal margin (27.1°C) and voltage stability while preserving 100% science payload observations.
+            <div class="log-console" id="log-console">
+              <!-- Populated dynamically -->
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Communication & Orbit Context -->
-        <div class="panel-card comm-panel">
-          <div class="panel-header">
-            <h2 class="panel-title">Communication & Ground Visibility</h2>
+    <!-- TAB 1: PAPER 1 COUNTERFACTUAL PLANNER -->
+    <div class="tab-content" id="tab-paper1">
+      <div class="panel-card">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">🧭 Paper 1 — Uncertainty-Aware Counterfactual Planning</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+              Simulating alternative recovery trajectories across cloned digital twins to evaluate payoff vs. risk before execution.
+            </p>
           </div>
-          <div class="comm-grid">
-            <div class="comm-stat">
-              <div class="comm-stat-label">RF Link State</div>
-              <div class="comm-stat-val warning">Blackout (Occultation)</div>
-            </div>
-            <div class="comm-stat">
-              <div class="comm-stat-label">Next Ground Pass</div>
-              <div class="comm-stat-val">Svalbard-GS in 4,336s</div>
-            </div>
-            <div class="comm-stat">
-              <div class="comm-stat-label">Decision Latency</div>
-              <div class="comm-stat-val">300s Operator Budget</div>
-            </div>
-            <div class="comm-stat">
-              <div class="comm-stat-label">Autonomy Arbitration</div>
-              <div class="comm-stat-val safe">ACT_AUTONOMOUSLY</div>
+          <button class="btn" id="btn-run-planner">⚡ Execute Counterfactual Lookahead</button>
+        </div>
+
+        <div class="data-table-wrapper">
+          <table class="data-table" id="table-counterfactual">
+            <thead>
+              <tr>
+                <th>Action ID</th>
+                <th>Strategy Name</th>
+                <th>Description</th>
+                <th>Peak Temp (°C)</th>
+                <th>Min Bus (V)</th>
+                <th>Science Avail (%)</th>
+                <th>Governor Verdict</th>
+                <th>Utility Score</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-counterfactual">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="verdict-banner approved" id="planner-decision-box" style="margin-top: 16px;">
+          <div class="verdict-icon">🤖</div>
+          <div>
+            <div style="font-weight: 700; font-size: 0.95rem;" id="planner-selected-title">AUTONOMOUS PLANNER: STANDBY</div>
+            <div style="font-size: 0.8rem; color: var(--text-secondary);" id="planner-selected-desc">
+              Awaiting counterfactual evaluation. Clones digital twin across 3,000s horizon to find Pareto-optimal safe recovery action.
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="app-footer">
-      <div>AstraHeal Research Project • Independent Autonomous Spacecraft Intelligence Platform</div>
-      <div>NASA PCoE Open Dataset Attribution • MIT License • August 2026</div>
-    </footer>
+    <!-- TAB 2: PAPER 2 EVIDENTIAL DIAGNOSIS -->
+    <div class="tab-content" id="tab-paper2">
+      <div class="panel-card">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">🔬 Paper 2 — Evidential Uncertainty-Aware Fault Diagnosis</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+              Dirichlet distribution belief mass assignment separating epistemic (novelty / OOD) from aleatoric (sensor noise) uncertainty.
+            </p>
+          </div>
+          <span class="panel-pill" id="badge-diagnosis-status">STATUS: NOMINAL</span>
+        </div>
+
+        <div class="uncertainty-gauges-grid">
+          <div class="gauge-box">
+            <div class="gauge-header">
+              <span class="gauge-title">EPISTEMIC UNCERTAINTY (u)</span>
+              <span class="gauge-value" id="val-epistemic" style="color: var(--accent-purple);">0.012</span>
+            </div>
+            <div class="gauge-bar-bg">
+              <div class="gauge-bar-fill" id="bar-epistemic" style="width: 1.2%; background: var(--accent-purple);"></div>
+            </div>
+            <div class="gauge-desc">Measures lack of training evidence / novelty. Spikes to ~1.0 on unmodeled OOD anomalies.</div>
+          </div>
+
+          <div class="gauge-box">
+            <div class="gauge-header">
+              <span class="gauge-title">ALEATORIC UNCERTAINTY</span>
+              <span class="gauge-value" id="val-aleatoric" style="color: var(--accent-amber);">0.018</span>
+            </div>
+            <div class="gauge-bar-bg">
+              <div class="gauge-bar-fill" id="bar-aleatoric" style="width: 1.8%; background: var(--accent-amber);"></div>
+            </div>
+            <div class="gauge-desc">Measures inherent sensor noise and orbital environmental fluctuations.</div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid" style="grid-template-columns: 1fr 1fr; margin-top: 16px;">
+          <div class="panel-card" style="margin-bottom: 0;">
+            <div class="panel-header">
+              <div class="panel-title">📊 Dirichlet Class Probability Distribution</div>
+              <span class="panel-pill">BELIEF MASSES</span>
+            </div>
+            <div class="prob-list">
+              <div class="prob-item">
+                <div class="prob-label-row"><span>Thermal Runaway</span><span id="pct-thermal">0.0%</span></div>
+                <div class="gauge-bar-bg"><div class="prob-bar-fill" id="bar-thermal" style="width: 0%; background: var(--accent-ruby);"></div></div>
+              </div>
+              <div class="prob-item">
+                <div class="prob-label-row"><span>Battery Impedance Spike</span><span id="pct-impedance">0.0%</span></div>
+                <div class="gauge-bar-bg"><div class="prob-bar-fill" id="bar-impedance" style="width: 0%; background: var(--accent-amber);"></div></div>
+              </div>
+              <div class="prob-item">
+                <div class="prob-label-row"><span>Solar String Open-Circuit</span><span id="pct-solar">0.0%</span></div>
+                <div class="gauge-bar-bg"><div class="prob-bar-fill" id="bar-solar-fault" style="width: 0%; background: var(--accent-cyan);"></div></div>
+              </div>
+              <div class="prob-item">
+                <div class="prob-label-row"><span>Parasitic Overcurrent Surge</span><span id="pct-surge">0.0%</span></div>
+                <div class="gauge-bar-bg"><div class="prob-bar-fill" id="bar-surge" style="width: 0%; background: #3b82f6;"></div></div>
+              </div>
+              <div class="prob-item">
+                <div class="prob-label-row"><span>Novel / Unseen Out-of-Distribution (OOD)</span><span id="pct-ood">0.0%</span></div>
+                <div class="gauge-bar-bg"><div class="prob-bar-fill" id="bar-ood" style="width: 0%; background: var(--accent-purple);"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card" style="margin-bottom: 0;">
+            <div class="panel-header">
+              <div class="panel-title">🛰️ Autonomous Arbitration Decision</div>
+              <span class="panel-pill" id="badge-comm-auth">COMM STATUS</span>
+            </div>
+            <div style="font-size: 0.85rem; line-height: 1.8;">
+              <div><strong>Primary Diagnosis:</strong> <span id="diag-primary" style="font-family: var(--font-mono); color: var(--accent-cyan);">NOMINAL_STABLE</span></div>
+              <div><strong>Evidential Confidence:</strong> <span id="diag-conf" style="font-family: var(--font-mono);">99.2%</span></div>
+              <div><strong>OOD Detection:</strong> <span id="diag-ood-flag" style="font-family: var(--font-mono); color: var(--accent-emerald);">FALSE (KNOWN SPACE)</span></div>
+              <div style="margin-top: 12px; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 6px;">
+                <strong>Ground Communication Rule:</strong>
+                <p id="diag-comm-rule" style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+                  During orbital blackout, critical faults trigger immediate autonomous containment. In-contact non-critical faults defer to ground flight operators.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: PAPER 3 DETERMINISTIC SAFETY GOVERNOR -->
+    <div class="tab-content" id="tab-paper3">
+      <!-- 4-Tier Hierarchy Flow -->
+      <div class="governor-pipeline-card">
+        <div class="panel-header" style="border-bottom: none; margin-bottom: 0;">
+          <div>
+            <div class="panel-title">🛡️ Paper 3 — Deterministic Safety Gating Architecture</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+              Rigorous AI-independent execution barrier. The AI proposes; the deterministic governor disposes.
+            </p>
+          </div>
+          <span class="panel-pill" style="border-color: var(--accent-cyan); color: var(--accent-cyan);">FAIL-CLOSED ENFORCEMENT</span>
+        </div>
+
+        <div class="governor-hierarchy-flow">
+          <div class="hierarchy-step active">
+            <div class="hierarchy-tier">LEVEL 1</div>
+            <div class="hierarchy-name">Hard Physical Invariants</div>
+            <div class="hierarchy-desc">Immutable thermal, voltage, current & battery reserves. Cannot be bypassed.</div>
+          </div>
+          <div class="hierarchy-step">
+            <div class="hierarchy-tier">LEVEL 2</div>
+            <div class="hierarchy-name">Communication Link</div>
+            <div class="hierarchy-desc">Ground contact vs blackout availability. Cannot override Level 1.</div>
+          </div>
+          <div class="hierarchy-step">
+            <div class="hierarchy-tier">LEVEL 3</div>
+            <div class="hierarchy-name">Recovery Efficacy</div>
+            <div class="hierarchy-desc">Payload preservation & power stability score among safe candidates.</div>
+          </div>
+          <div class="hierarchy-step">
+            <div class="hierarchy-tier">LEVEL 4</div>
+            <div class="hierarchy-name">AI / Planner Preferences</div>
+            <div class="hierarchy-desc">May rank safe actions, but zero authority to authorize unsafe actions.</div>
+          </div>
+        </div>
+
+        <!-- Invariant Checklist -->
+        <div class="invariants-grid">
+          <div class="invariant-card" id="inv-card-temp">
+            <div class="inv-info">
+              <span class="inv-title">Battery Thermal Barrier</span>
+              <span class="inv-limit">T ≤ 46.0°C (Runaway limit)</span>
+            </div>
+            <span class="inv-state-badge pass" id="inv-badge-temp">PASS</span>
+          </div>
+          <div class="invariant-card" id="inv-card-volt">
+            <div class="inv-info">
+              <span class="inv-title">Bus Undervoltage Floor</span>
+              <span class="inv-limit">V ≥ 22.0V (Avionics brownout)</span>
+            </div>
+            <span class="inv-state-badge pass" id="inv-badge-volt">PASS</span>
+          </div>
+          <div class="invariant-card" id="inv-card-curr">
+            <div class="inv-info">
+              <span class="inv-title">Harness Overcurrent Rating</span>
+              <span class="inv-limit">I ≤ 40.0A (Conductor fuse)</span>
+            </div>
+            <span class="inv-state-badge pass" id="inv-badge-curr">PASS</span>
+          </div>
+          <div class="invariant-card" id="inv-card-soc">
+            <div class="inv-info">
+              <span class="inv-title">Battery Reserve Floor</span>
+              <span class="inv-limit">SoC ≥ 15.0% (Cell preservation)</span>
+            </div>
+            <span class="inv-state-badge pass" id="inv-badge-soc">PASS</span>
+          </div>
+          <div class="invariant-card" id="inv-card-power">
+            <div class="inv-info">
+              <span class="inv-title">PDU Maximum Power</span>
+              <span class="inv-limit">P ≤ 880.0W (Switch rating)</span>
+            </div>
+            <span class="inv-state-badge pass" id="inv-badge-power">PASS</span>
+          </div>
+          <div class="invariant-card" id="inv-card-cat">
+            <div class="inv-info">
+              <span class="inv-title">Certified Command Catalog</span>
+              <span class="inv-limit">8 Pre-approved Flight Actions</span>
+            </div>
+            <span class="inv-state-badge pass" id="inv-badge-cat">PASS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Adversarial Proposal Tester -->
+      <div class="panel-card">
+        <div class="panel-header">
+          <div>
+            <div class="panel-title">⚔️ Adversarial & Hallucinatory Proposal Stress-Tester</div>
+            <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px;">
+              Submit deceptively high-confidence, boundary, or corrupted AI proposals to verify that the Governor deterministically blocks them.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-warning" id="btn-preset-thermal">Preset: Thermal Breach</button>
+            <button class="btn btn-danger" id="btn-preset-undervolt">Preset: Undervoltage</button>
+            <button class="btn btn-secondary" id="btn-preset-failclosed">Preset: NaN / Corrupt</button>
+          </div>
+        </div>
+
+        <div class="tester-box">
+          <div class="tester-controls-grid">
+            <div class="form-group">
+              <label>Candidate Action ID</label>
+              <input type="text" class="form-control" id="prop-id" value="AI-ADV-PROP-01">
+            </div>
+            <div class="form-group">
+              <label>Action Type</label>
+              <select class="form-control" id="prop-type">
+                <option value="REDUCE_PAYLOAD_LOAD">REDUCE_PAYLOAD_LOAD (Certified)</option>
+                <option value="ENTER_SAFE_MODE">ENTER_SAFE_MODE (Certified)</option>
+                <option value="CONTINUE_NOMINAL">CONTINUE_NOMINAL (Certified)</option>
+                <option value="OVERCHARGE_RAPID_BATTERY">OVERCHARGE_RAPID (Uncertified!)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Predicted Peak Temp (°C)</label>
+              <input type="number" step="0.5" class="form-control" id="prop-temp" value="48.5">
+            </div>
+            <div class="form-group">
+              <label>Predicted Min Voltage (V)</label>
+              <input type="number" step="0.5" class="form-control" id="prop-volt" value="26.0">
+            </div>
+            <div class="form-group">
+              <label>Predicted Peak Current (A)</label>
+              <input type="number" step="1.0" class="form-control" id="prop-curr" value="18.0">
+            </div>
+            <div class="form-group">
+              <label>AI Confidence Score</label>
+              <input type="number" step="0.01" max="1.0" class="form-control" id="prop-conf" value="0.99">
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <div style="font-size: 0.8rem; color: var(--text-secondary);">
+              <em>Note: High AI confidence (0.99) cannot override hard Level 1 physical safety invariants.</em>
+            </div>
+            <button class="btn" id="btn-submit-proposal">🔒 Submit to Safety Governor</button>
+          </div>
+
+          <div class="verdict-banner rejected" id="governor-verdict-box" style="margin-top: 16px;">
+            <div class="verdict-icon" id="gov-verdict-icon">⛔</div>
+            <div>
+              <div style="font-weight: 700; font-size: 1.05rem;" id="gov-verdict-title">VERDICT: REJECTED</div>
+              <div style="font-size: 0.85rem; margin-top: 4px;" id="gov-verdict-reasons">
+                Violated: THERMAL_OVERHEAT (48.5°C exceeds maximum allowable 46.0°C by +2.5°C). Action blocked from spacecraft bus execution.
+              </div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;" id="gov-verdict-meta">
+                Evaluated: 6/6 constraints | Latency: 0.003 ms | Execution: BLOCKED
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- FLOATING MISSION CONTROL DOCK -->
+  <footer class="mission-control-dock">
+    <div class="dock-left">
+      <span class="dock-label">Simulation Speed:</span>
+      <div class="speed-btn-group">
+        <button class="speed-btn" data-speed="0" id="btn-speed-pause">⏸ Pause</button>
+        <button class="speed-btn active" data-speed="1" id="btn-speed-1x">1x</button>
+        <button class="speed-btn" data-speed="5" id="btn-speed-5x">5x</button>
+        <button class="speed-btn" data-speed="20" id="btn-speed-20x">20x</button>
+      </div>
+    </div>
+
+    <div class="dock-center">
+      <span class="dock-label">Physical Fault Injection:</span>
+      <select class="form-control" style="width: 250px; padding: 6px 10px; font-size: 0.8rem;" id="sel-fault-type">
+        <option value="BATTERY_RESISTANCE_SPIKE">Battery Internal Resistance Spike</option>
+        <option value="THERMAL_RUNAWAY">Thermal Runaway Heat Injection</option>
+        <option value="SOLAR_STRING_FAULT">Solar Array Partial Loss</option>
+        <option value="PARASITIC_LOAD_SURGE">Parasitic Bus Overcurrent Surge</option>
+        <option value="OOD_NOVELTY">Novel Out-of-Distribution Drift</option>
+      </select>
+      <button class="btn btn-warning" style="padding: 6px 14px; font-size: 0.8rem;" id="btn-inject-fault">💥 Inject Fault</button>
+      <button class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.8rem;" id="btn-clear-faults">🧹 Clear Faults</button>
+    </div>
+
+    <div class="dock-right">
+      <input type="file" id="file-csv-input" accept=".csv" style="display: none;">
+      <button class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.8rem;" id="btn-upload-csv">📁 Replay User CSV</button>
+      <button class="btn btn-danger" style="padding: 6px 14px; font-size: 0.8rem;" id="btn-reset-sim">🔄 Reset Orbit</button>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>

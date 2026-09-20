@@ -2,7 +2,7 @@
 
 **Manuscript Title**: *Evidential Uncertainty-Aware Fault Diagnosis for Autonomous Spacecraft Health Management*  
 **Release Version**: `Paper 2 — Research Release v1.0`  
-**Authors**: AstraHeal Research Group (Autonomous Systems & Aerospace Research)  
+**Author**: Madan Kalyan Thambisetty (Autonomous Systems & Aerospace Software Research)  
 **Date**: 2026  
 **License**: MIT License / Open Science Public Domain  
 **Code Repository**: [https://github.com/madankalyan2211/AstraHeal](https://github.com/madankalyan2211/AstraHeal)  

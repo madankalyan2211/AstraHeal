@@ -1,0 +1,11 @@
+{
+  "benchmark_evaluations": 10000,
+  "total_time_sec": 0.012628084004973061,
+  "throughput_evals_per_sec": 791885.767948796,
+  "latency_mean_microseconds": 1.2230145206558518,
+  "latency_median_microseconds": 1.2090022210031748,
+  "latency_p95_microseconds": 1.291991793550551,
+  "latency_p99_microseconds": 1.3329990906640887,
+  "latency_max_microseconds": 16.167003195732832,
+  "constraints_evaluated_per_action": 6
+}

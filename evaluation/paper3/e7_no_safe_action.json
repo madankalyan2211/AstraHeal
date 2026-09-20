@@ -1,0 +1,173 @@
+{
+  "experiment_id": "P3-E7",
+  "description": "Physically Constrained 'No-Safe-Action' Scenarios",
+  "num_scenarios": 150,
+  "total_candidates_evaluated": 750,
+  "total_candidates_rejected": 750,
+  "no_safe_action_events": 150,
+  "safe_failure_convergence_rate": 1.0,
+  "forced_unsafe_executions": 0,
+  "unsafe_execution_rate": 0.0,
+  "detailed_sample": [
+    {
+      "scenario_id": 1,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 2,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 3,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 4,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 5,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 6,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 7,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 8,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 9,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 10,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 11,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 12,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 13,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 14,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 15,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 16,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 17,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 18,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 19,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    },
+    {
+      "scenario_id": 20,
+      "candidates_evaluated": 5,
+      "candidates_rejected": 5,
+      "candidates_approved": 0,
+      "status_message": "NO_SAFE_ACTION_AVAILABLE",
+      "forced_execution": false
+    }
+  ]
+}

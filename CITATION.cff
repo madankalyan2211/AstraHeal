@@ -1,15 +1,34 @@
 cff-version: 1.2.0
-message: "If you use AstraHeal in your scientific research, please cite it as below."
+message: "If you use AstraHeal in your scientific research or aerospace autonomy development, please cite it as below."
 authors:
-  - family-names: "AstraHeal Research Group"
-title: "AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery"
-version: 1.0.0
-date-released: 2026-08-31
+  - family-names: "Thambisetty"
+    given-names: "Madan"
+    affiliation: "Autonomous Systems & Aerospace Software Research Group"
+title: "AstraHeal: Uncertainty-Aware Counterfactual Planning, Evidential Diagnosis, and Safety Gating for Autonomous Spacecraft"
+version: 4.0.0
+date-released: 2026-09-20
 url: "https://github.com/madankalyan2211/AstraHeal"
+doi: "10.5281/zenodo.22233081"
 keywords:
   - autonomous spacecraft
   - digital twin
-  - counterfactual simulation
+  - counterfactual planning
   - uncertainty quantification
   - fault diagnosis
   - safety governor
+  - evidential deep learning
+  - runtime assurance
+  - aerospace software
+  - physical invariants
+  - fail-closed
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Thambisetty"
+      given-names: "Madan"
+  title: "AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery"
+  journal: "Zenodo"
+  year: 2026
+  month: 9
+  doi: "10.5281/zenodo.22233081"
+  url: "https://doi.org/10.5281/zenodo.22233081"

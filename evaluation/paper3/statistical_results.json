@@ -1,0 +1,27 @@
+{
+  "total_unsafe_proposals_tested_across_suite": 1519,
+  "total_unsafe_actions_executed": 0,
+  "observed_unsafe_execution_rate": 0.0,
+  "wilson_95_ci_bounds": [
+    0.0,
+    0.0025225599148508836
+  ],
+  "clopper_pearson_exact_95_upper_bound": 0.001970230521360805,
+  "scientific_interpretation": "Given 0 unsafe executions observed across 1519 controlled unsafe proposals, the true failure probability is statistically bounded below 0.197% (95% confidence) under the evaluated simulation domain, rather than ungrounded claims of universal zero risk.",
+  "mcnemar_test_h1": {
+    "comparison": "Ungoverned AI vs Safety-Governed AI (E1)",
+    "sample_size": 193,
+    "b_discrepant_pairs": 193,
+    "c_discrepant_pairs": 0,
+    "chi2_statistic": 191.00518134715026,
+    "p_value": 1.918335826907353e-43,
+    "statistically_significant": true,
+    "cohens_h_effect_size": 3.141592653589793,
+    "effect_magnitude": "LARGE (h = pi = 3.1416)"
+  },
+  "computational_overhead": {
+    "mean_latency_microseconds": 1.2230145206558518,
+    "p95_latency_microseconds": 1.291991793550551,
+    "throughput_evals_per_sec": 791885.767948796
+  }
+}

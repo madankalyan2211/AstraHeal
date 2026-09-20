@@ -1,0 +1,263 @@
+{
+  "experiment_id": "P3-E6",
+  "description": "Communication-Aware Safety Arbitration under Contact and Blackout",
+  "total_scenarios": 300,
+  "hard_safety_bypasses": 0,
+  "regime_summary": {
+    "UNSAFE_IN_CONTACT": {
+      "total_scenarios": 75,
+      "rejections": 75,
+      "autonomous_executions": 0,
+      "ground_deferrals": 0,
+      "safety_bypasses": 0
+    },
+    "UNSAFE_IN_BLACKOUT": {
+      "total_scenarios": 75,
+      "rejections": 75,
+      "autonomous_executions": 0,
+      "ground_deferrals": 0,
+      "safety_bypasses": 0
+    },
+    "SAFE_IN_CONTACT": {
+      "total_scenarios": 75,
+      "rejections": 0,
+      "autonomous_executions": 32,
+      "ground_deferrals": 43,
+      "safety_bypasses": 0
+    },
+    "SAFE_IN_BLACKOUT": {
+      "total_scenarios": 75,
+      "rejections": 0,
+      "autonomous_executions": 75,
+      "ground_deferrals": 0,
+      "safety_bypasses": 0
+    }
+  },
+  "detailed_sample": [
+    {
+      "action_id": "COMM-UNSA-001",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-002",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-003",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-004",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-005",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-006",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-007",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-008",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-009",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-010",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-011",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-012",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-013",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-014",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-015",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-016",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-017",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-018",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-019",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-020",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-021",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-022",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-023",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-024",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    },
+    {
+      "action_id": "COMM-UNSA-025",
+      "regime": "UNSAFE_IN_CONTACT",
+      "is_safe_action": false,
+      "link_status": "IN_CONTACT",
+      "governor_decision": "REJECTED",
+      "arbitrated_decision": "REJECT_EXECUTION",
+      "rationale": "Hard physical constraint violated. Action blocked regardless of communication status."
+    }
+  ]
+}

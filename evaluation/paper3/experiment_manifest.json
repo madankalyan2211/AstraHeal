@@ -1,0 +1,149 @@
+{
+  "project": "AstraHeal Paper 3",
+  "title": "AstraHeal: Deterministic Safety Gating for Uncertainty-Aware Autonomous Spacecraft Fault Recovery",
+  "version": "3.0.0-research",
+  "timestamp_utc": "2026-09-12T12:25:00Z",
+  "environment": {
+    "python_version": "3.12.2",
+    "os": "macOS-15.0-arm64",
+    "dependencies": {
+      "numpy": "1.26.4",
+      "scipy": "1.13.1",
+      "pydantic": "2.8.2",
+      "pytest": "8.4.2"
+    }
+  },
+  "hard_safety_constraints": {
+    "max_battery_temp_c": 46.0,
+    "min_bus_voltage_v": 22.0,
+    "max_battery_current_a": 40.0,
+    "min_battery_soc": 0.15,
+    "max_pdu_power_w": 880.0,
+    "require_survival": true
+  },
+  "experiments": [
+    {
+      "experiment_id": "P3-E1",
+      "name": "Baseline Safety Enforcement",
+      "hypothesis": "H1",
+      "purpose": "Compare ungoverned AI direct execution vs deterministic safety governor gating",
+      "scenario_count": 500,
+      "random_seed": 42,
+      "metrics_recorded": [
+        "unsafe_action_execution_rate",
+        "unsafe_action_rejection_rate",
+        "safe_action_acceptance_rate",
+        "governor_bypasses"
+      ],
+      "artifact_path": "evaluation/paper3/e1_baseline_safety.json",
+      "status": "COMPLETED_VERIFIED"
+    },
+    {
+      "experiment_id": "P3-E2",
+      "name": "Individual Constraint Coverage",
+      "hypothesis": "H2",
+      "purpose": "Evaluate thermal, voltage, overcurrent, SoC, power, and survival constraints across 4 canonical operational regimes",
+      "scenario_count": 600,
+      "random_seed": 42,
+      "metrics_recorded": [
+        "accuracy_per_constraint",
+        "violation_tag_verification",
+        "regime_coverage"
+      ],
+      "artifact_path": "evaluation/paper3/e2_constraint_coverage.json",
+      "status": "COMPLETED_VERIFIED"
+    },
+    {
+      "experiment_id": "P3-E3",
+      "name": "Compound Multi-Constraint Violations",
+      "hypothesis": "H2, H3",
+      "purpose": "Evaluate concurrent multi-channel breaches across double, triple, and quadruple combinations",
+      "scenario_count": 300,
+      "random_seed": 42,
+      "metrics_recorded": [
+        "compound_rejection_rate",
+        "concurrent_violation_detection_recall"
+      ],
+      "artifact_path": "evaluation/paper3/e3_compound_constraints.json",
+      "status": "COMPLETED_VERIFIED"
+    },
+    {
+      "experiment_id": "P3-E4",
+      "name": "Unsafe AI Proposal Injection",
+      "hypothesis": "H3",
+      "purpose": "Test governor resilience against 400 adversarial proposals across 5 attack vectors",
+      "scenario_count": 400,
+      "random_seed": 777,
+      "metrics_recorded": [
+        "adversarial_rejection_rate",
+        "adversarial_execution_rate",
+        "fail_closed_triggers"
+      ],
+      "artifact_path": "evaluation/paper3/e4_unsafe_proposals.json",
+      "status": "COMPLETED_VERIFIED"
+    },
+    {
+      "experiment_id": "P3-E5",
+      "name": "Continuous Boundary Testing",
+      "hypothesis": "H4",
+      "purpose": "Characterize mathematical transitions across 201 finely spaced points spanning [-5.0, +5.0] margins",
+      "scenario_count": 804,
+      "random_seed": null,
+      "metrics_recorded": [
+        "boundary_switches_count",
+        "strict_monotonicity",
+        "inconsistency_count"
+      ],
+      "artifact_path": "evaluation/paper3/e5_boundary_testing.json",
+      "status": "COMPLETED_VERIFIED"
+    },
+    {
+      "experiment_id": "P3-E6",
+      "name": "Communication-Aware Safety Arbitration",
+      "hypothesis": "H5",
+      "purpose": "Verify Level 1 hard safety invariants strictly dominate Level 2 communication preferences",
+      "scenario_count": 300,
+      "random_seed": 42,
+      "metrics_recorded": [
+        "hard_safety_bypasses",
+        "rejections_in_contact",
+        "rejections_in_blackout",
+        "autonomous_executions",
+        "ground_deferrals"
+      ],
+      "artifact_path": "evaluation/paper3/e6_communication_safety.json",
+      "status": "COMPLETED_VERIFIED"
+    },
+    {
+      "experiment_id": "P3-E7",
+      "name": "Physically Constrained No-Safe-Action Scenarios",
+      "hypothesis": "H6",
+      "purpose": "Evaluate physical dead-end regimes where all candidate actions violate at least one constraint",
+      "scenario_count": 150,
+      "random_seed": 101,
+      "metrics_recorded": [
+        "no_safe_action_events",
+        "safe_failure_convergence_rate",
+        "forced_unsafe_executions"
+      ],
+      "artifact_path": "evaluation/paper3/e7_no_safe_action.json",
+      "status": "COMPLETED_VERIFIED"
+    },
+    {
+      "experiment_id": "P3-E8",
+      "name": "Safety Governor Ablation & Overhead Profiling",
+      "hypothesis": "H1, H2",
+      "purpose": "Ablation comparing AI_ONLY, HEURISTIC_RULES_ONLY, and AI_PLUS_GOVERNOR, with fail-closed testing and 10,000-eval latency profiling",
+      "scenario_count": 500,
+      "random_seed": 2026,
+      "metrics_recorded": [
+        "unsafe_execution_rate_by_config",
+        "fail_closed_rate",
+        "mean_latency_microseconds",
+        "throughput_evals_per_sec"
+      ],
+      "artifact_path": "evaluation/paper3/e8_ablation.json",
+      "status": "COMPLETED_VERIFIED"
+    }
+  ]
+}

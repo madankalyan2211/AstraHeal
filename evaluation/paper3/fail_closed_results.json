@@ -1,0 +1,91 @@
+{
+  "total_test_cases": 7,
+  "rejected_count": 7,
+  "fail_closed_rate": 1.0,
+  "cases": [
+    {
+      "case_name": "NaN_Temperature",
+      "decision": "REJECTED",
+      "is_fail_closed": true,
+      "violated_constraints": [
+        "FAIL_CLOSED_ACTION_PREDICTED_PEAK_TEMP_C_NAN_OR_INF"
+      ],
+      "rejection_reasons": [
+        "Action prediction parameter 'predicted_peak_temp_c' contains NaN or Inf."
+      ],
+      "passed_fail_closed": true
+    },
+    {
+      "case_name": "Inf_Voltage",
+      "decision": "REJECTED",
+      "is_fail_closed": true,
+      "violated_constraints": [
+        "FAIL_CLOSED_ACTION_PREDICTED_MIN_VOLTAGE_V_NAN_OR_INF"
+      ],
+      "rejection_reasons": [
+        "Action prediction parameter 'predicted_min_voltage_v' contains NaN or Inf."
+      ],
+      "passed_fail_closed": true
+    },
+    {
+      "case_name": "NaN_Current",
+      "decision": "REJECTED",
+      "is_fail_closed": true,
+      "violated_constraints": [
+        "FAIL_CLOSED_ACTION_PREDICTED_PEAK_CURRENT_A_NAN_OR_INF"
+      ],
+      "rejection_reasons": [
+        "Action prediction parameter 'predicted_peak_current_a' contains NaN or Inf."
+      ],
+      "passed_fail_closed": true
+    },
+    {
+      "case_name": "Inf_SoC",
+      "decision": "REJECTED",
+      "is_fail_closed": true,
+      "violated_constraints": [
+        "FAIL_CLOSED_ACTION_PREDICTED_MIN_SOC_NAN_OR_INF"
+      ],
+      "rejection_reasons": [
+        "Action prediction parameter 'predicted_min_soc' contains NaN or Inf."
+      ],
+      "passed_fail_closed": true
+    },
+    {
+      "case_name": "NaN_Power",
+      "decision": "REJECTED",
+      "is_fail_closed": true,
+      "violated_constraints": [
+        "FAIL_CLOSED_ACTION_PREDICTED_PEAK_POWER_W_NAN_OR_INF"
+      ],
+      "rejection_reasons": [
+        "Action prediction parameter 'predicted_peak_power_w' contains NaN or Inf."
+      ],
+      "passed_fail_closed": true
+    },
+    {
+      "case_name": "Uncertified_Action",
+      "decision": "REJECTED",
+      "is_fail_closed": true,
+      "violated_constraints": [
+        "FAIL_CLOSED_UNCERTIFIED_ACTION_TYPE"
+      ],
+      "rejection_reasons": [
+        "Proposed action 'FIRE_PROPULSION_THRUSTER' is not recognized in the certified flight action catalog."
+      ],
+      "passed_fail_closed": true
+    },
+    {
+      "case_name": "Null_State",
+      "decision": "REJECTED",
+      "is_fail_closed": true,
+      "violated_constraints": [
+        "FAIL_CLOSED_NULL_STATE"
+      ],
+      "rejection_reasons": [
+        "Spacecraft state is null; cannot verify safety."
+      ],
+      "passed_fail_closed": true
+    }
+  ]
+}

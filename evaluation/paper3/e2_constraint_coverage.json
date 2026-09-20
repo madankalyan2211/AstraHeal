@@ -1,0 +1,335 @@
+{
+  "experiment_id": "P3-E2",
+  "description": "Individual Constraint Coverage across 4 canonical operational states",
+  "total_tests": 600,
+  "coverage_summary": {
+    "thermal": {
+      "total_evaluations": 100,
+      "correct_verdicts": 100,
+      "accuracy": 1.0,
+      "regimes_tested": {
+        "clearly_safe": 25,
+        "near_limit": 25,
+        "exact_boundary": 25,
+        "explicit_breach": 25
+      },
+      "violation_tag_verified": "HARD_THERMAL_EXCEEDED"
+    },
+    "voltage": {
+      "total_evaluations": 100,
+      "correct_verdicts": 100,
+      "accuracy": 1.0,
+      "regimes_tested": {
+        "clearly_safe": 25,
+        "near_limit": 25,
+        "exact_boundary": 25,
+        "explicit_breach": 25
+      },
+      "violation_tag_verified": "HARD_VOLTAGE_UNDERFLOW"
+    },
+    "current": {
+      "total_evaluations": 100,
+      "correct_verdicts": 100,
+      "accuracy": 1.0,
+      "regimes_tested": {
+        "clearly_safe": 25,
+        "near_limit": 25,
+        "exact_boundary": 25,
+        "explicit_breach": 25
+      },
+      "violation_tag_verified": "HARD_OVERCURRENT_EXCEEDED"
+    },
+    "soc": {
+      "total_evaluations": 100,
+      "correct_verdicts": 100,
+      "accuracy": 1.0,
+      "regimes_tested": {
+        "clearly_safe": 25,
+        "near_limit": 25,
+        "exact_boundary": 25,
+        "explicit_breach": 25
+      },
+      "violation_tag_verified": "HARD_SOC_DEPLETED"
+    },
+    "power": {
+      "total_evaluations": 100,
+      "correct_verdicts": 100,
+      "accuracy": 1.0,
+      "regimes_tested": {
+        "clearly_safe": 25,
+        "near_limit": 25,
+        "exact_boundary": 25,
+        "explicit_breach": 25
+      },
+      "violation_tag_verified": "HARD_POWER_CEILING_EXCEEDED"
+    },
+    "survival": {
+      "total_evaluations": 100,
+      "correct_verdicts": 100,
+      "accuracy": 1.0,
+      "regimes_tested": {
+        "clearly_safe": 75,
+        "near_limit": 0,
+        "exact_boundary": 0,
+        "explicit_breach": 25
+      },
+      "violation_tag_verified": "HARD_SURVIVAL_FAILED"
+    }
+  },
+  "detailed_sample": [
+    {
+      "constraint": "thermal",
+      "regime": "clearly_safe",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "near_limit",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "exact_boundary",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "explicit_breach",
+      "expected_safe": false,
+      "governor_decision": "REJECTED",
+      "violated_constraints": [
+        "HARD_THERMAL_EXCEEDED"
+      ],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "clearly_safe",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "near_limit",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "exact_boundary",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "explicit_breach",
+      "expected_safe": false,
+      "governor_decision": "REJECTED",
+      "violated_constraints": [
+        "HARD_THERMAL_EXCEEDED"
+      ],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "clearly_safe",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "near_limit",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "exact_boundary",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "explicit_breach",
+      "expected_safe": false,
+      "governor_decision": "REJECTED",
+      "violated_constraints": [
+        "HARD_THERMAL_EXCEEDED"
+      ],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "clearly_safe",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "near_limit",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "exact_boundary",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "explicit_breach",
+      "expected_safe": false,
+      "governor_decision": "REJECTED",
+      "violated_constraints": [
+        "HARD_THERMAL_EXCEEDED"
+      ],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "clearly_safe",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "near_limit",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "exact_boundary",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "explicit_breach",
+      "expected_safe": false,
+      "governor_decision": "REJECTED",
+      "violated_constraints": [
+        "HARD_THERMAL_EXCEEDED"
+      ],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "clearly_safe",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "near_limit",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "exact_boundary",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "explicit_breach",
+      "expected_safe": false,
+      "governor_decision": "REJECTED",
+      "violated_constraints": [
+        "HARD_THERMAL_EXCEEDED"
+      ],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "clearly_safe",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "near_limit",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "exact_boundary",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "explicit_breach",
+      "expected_safe": false,
+      "governor_decision": "REJECTED",
+      "violated_constraints": [
+        "HARD_THERMAL_EXCEEDED"
+      ],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "clearly_safe",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    },
+    {
+      "constraint": "thermal",
+      "regime": "near_limit",
+      "expected_safe": true,
+      "governor_decision": "APPROVED",
+      "violated_constraints": [],
+      "correct": true
+    }
+  ]
+}

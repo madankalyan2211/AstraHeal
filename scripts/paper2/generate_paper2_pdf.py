@@ -194,7 +194,7 @@ def build_pdf(output_path: str):
     story.append(Paragraph("Evidential Uncertainty-Aware Fault Diagnosis for Autonomous Spacecraft Health Management", title_style))
     story.append(Paragraph("AstraHeal Paper 2 — Formal Scientific Research Series", subtitle_style))
     story.append(Paragraph(
-        "<b>AstraHeal Research Group</b> &bull; Autonomous Systems &amp; Aerospace Research<br/>"
+        "<b>Madan Kalyan Thambisetty</b> &bull; Autonomous Systems &amp; Aerospace Research<br/>"
         "Artifact Repository: <u>https://github.com/madankalyan2211/AstraHeal</u> &bull; Publication Year: 2026",
         meta_style
     ))
@@ -425,10 +425,15 @@ def build_pdf(output_path: str):
         '[4] K. Hundman, V. Constantinou, C. Laporte, I. Colwell, and T. Soderstrom, "Detecting spacecraft anomalies using LSTMs and nonparametric dynamic thresholding," in <i>Proc. 24th ACM SIGKDD Int. Conf. Knowl. Discovery Data Mining (KDD)</i>, 2018, pp. 387–395.',
         '[5] M. Sensoy, L. Kaplan, and M. Kandemir, "Evidential deep learning to quantify classification uncertainty," in <i>Adv. Neural Inf. Process. Syst. (NeurIPS)</i>, vol. 31, 2018, pp. 3179–3189.',
         '[6] A. Malinin and M. Gales, "Predictive uncertainty estimation via prior networks," in <i>Adv. Neural Inf. Process. Syst. (NeurIPS)</i>, vol. 31, 2018, pp. 7047–7058.',
-        '[7] B. Saha and K. Goebel, "Battery data set," NASA Ames Prognostics Center of Excellence (PCoE) Data Repository, Moffett Field, CA, Tech. Rep., 2007. [Online]. Available: https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/',
+        '[7] B. Saha and K. Goebel, "Battery data set," NASA Ames Prognostics Center of Excellence (PCoE) Data Repository, Moffett Field, CA, Tech. Rep., 2007.',
         '[8] C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, "On calibration of modern neural networks," in <i>Proc. 34th Int. Conf. Mach. Learn. (ICML)</i>, 2017, pp. 1321–1330.',
         '[9] D. Hendrycks and K. Gimpel, "A baseline for detecting misclassified and out-of-distribution examples in neural networks," in <i>Proc. Int. Conf. Learn. Representations (ICLR)</i>, 2017.',
         '[10] F. T. Liu, K. M. Ting, and Z.-H. Zhou, "Isolation forest," in <i>Proc. 8th IEEE Int. Conf. Data Mining (ICDM)</i>, 2008, pp. 413–422.',
+        '[11] B. Lakshminarayanan, A. Pritzel, and C. Blundell, "Simple and scalable predictive uncertainty estimation using deep ensembles," in <i>Adv. Neural Inf. Process. Syst. (NeurIPS)</i>, vol. 30, 2017, pp. 6402–6413.',
+        '[12] M. Chen and G. A. Rincon-Mora, "Accurate electrical battery model capable of predicting runtime and IV performance," <i>IEEE Trans. Energy Convers.</i>, vol. 21, no. 2, pp. 504–511, 2006.',
+        '[13] J. R. Wertz, D. F. Everett, and J. J. Puschell, <i>Space Mission Engineering: The New SMAD</i>, Microcosm Press, 2011.',
+        '[14] A. D. Ames, X. Xu, J. W. Grizzle, and P. Tabuada, "Control barrier functions: Theory and applications," in <i>European Control Conference (ECC)</i>, 2016, pp. 362–373.',
+        '[15] M. Thambisetty, "AstraHeal: Uncertainty-Aware Counterfactual Planning for Autonomous Spacecraft Fault Recovery," <i>Zenodo</i>, Sep. 2026, doi: 10.5281/zenodo.22233081.'
     ]
     for ref in references:
         story.append(Paragraph(ref, ref_style))

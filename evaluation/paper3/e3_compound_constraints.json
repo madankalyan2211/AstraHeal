@@ -1,0 +1,411 @@
+{
+  "experiment_id": "P3-E3",
+  "description": "Compound Multi-Constraint Violations (2, 3, and 4 concurrent breaches)",
+  "total_scenarios": 300,
+  "total_violations_injected": 800,
+  "total_violations_detected": 800,
+  "compound_rejection_rate": 1.0,
+  "compound_detection_recall": 1.0,
+  "category_breakdown": {
+    "DOUBLE_THERMAL_VOLTAGE": {
+      "scenarios": 50,
+      "rejections": 50,
+      "rejection_rate": 1.0,
+      "full_detection_count": 50,
+      "full_detection_rate": 1.0,
+      "expected_violations_per_case": 2
+    },
+    "DOUBLE_VOLTAGE_OVERCURRENT": {
+      "scenarios": 50,
+      "rejections": 50,
+      "rejection_rate": 1.0,
+      "full_detection_count": 50,
+      "full_detection_rate": 1.0,
+      "expected_violations_per_case": 2
+    },
+    "DOUBLE_THERMAL_SOC": {
+      "scenarios": 50,
+      "rejections": 50,
+      "rejection_rate": 1.0,
+      "full_detection_count": 50,
+      "full_detection_rate": 1.0,
+      "expected_violations_per_case": 2
+    },
+    "TRIPLE_THERMAL_VOLT_CURR": {
+      "scenarios": 50,
+      "rejections": 50,
+      "rejection_rate": 1.0,
+      "full_detection_count": 50,
+      "full_detection_rate": 1.0,
+      "expected_violations_per_case": 3
+    },
+    "TRIPLE_THERMAL_VOLT_SOC": {
+      "scenarios": 50,
+      "rejections": 50,
+      "rejection_rate": 1.0,
+      "full_detection_count": 50,
+      "full_detection_rate": 1.0,
+      "expected_violations_per_case": 3
+    },
+    "QUAD_THERMAL_VOLT_CURR_SOC": {
+      "scenarios": 50,
+      "rejections": 50,
+      "rejection_rate": 1.0,
+      "full_detection_count": 50,
+      "full_detection_rate": 1.0,
+      "expected_violations_per_case": 4
+    }
+  },
+  "detailed_sample": [
+    {
+      "action_id": "CMP-DOUBLE-001",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-002",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-003",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-004",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-005",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-006",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-007",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-008",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-009",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-010",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-011",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-012",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-013",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-014",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-015",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-016",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-017",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-018",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-019",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-020",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-021",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-022",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-023",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-024",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    },
+    {
+      "action_id": "CMP-DOUBLE-025",
+      "compound_class": "DOUBLE_THERMAL_VOLTAGE",
+      "expected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "detected_violations": [
+        "HARD_THERMAL_EXCEEDED",
+        "HARD_VOLTAGE_UNDERFLOW"
+      ],
+      "fully_detected": true,
+      "decision": "REJECTED"
+    }
+  ]
+}

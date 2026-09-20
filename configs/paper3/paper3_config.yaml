@@ -1,0 +1,71 @@
+# AstraHeal Paper 3 — Research Configuration Specification
+# "AstraHeal: Deterministic Safety Gating for Uncertainty-Aware Autonomous Spacecraft Fault Recovery"
+
+project:
+  name: "AstraHeal Paper 3"
+  version: "3.0.0-research"
+  date: 2026
+  random_seeds:
+    primary: 42
+    validation: 1337
+    test: 2026
+    boundary: 999
+    adversarial: 777
+
+hard_safety_constraints:
+  max_battery_temp_c: 46.0         # Exothermic runaway barrier (°C)
+  min_bus_voltage_v: 22.0          # Essential avionics undervoltage floor (V)
+  max_battery_current_a: 40.0      # PDU harness overcurrent safety threshold (A)
+  min_battery_soc: 0.15            # Irreversible cell degradation floor (15% reserve)
+  max_pdu_power_w: 880.0           # Maximum safe power delivery rating (W)
+  require_survival: true           # Spacecraft must not enter fatal vehicle collapse
+  fail_closed_on_nan: true         # Reject immediately if any NaN / Inf / missing value is detected
+  require_valid_action_id: true    # Action must exist in certified flight catalog
+
+safety_hierarchy:
+  level_1: "HARD_PHYSICAL_SAFETY_INVARIANTS"    # Thermal, Voltage, Current, SoC, Validity
+  level_2: "COMMUNICATION_CONSTRAINTS"           # Pass geometry, orbital latency budget
+  level_3: "MISSION_RECOVERY_UTILITY"            # Payload delivery, energy preservation, reversibility
+  level_4: "AI_PLANNER_HEURISTIC_PREFERENCE"     # Soft ranking / candidate prioritization
+
+experimental_suite:
+  e1_baseline_safety:
+    scenarios_count: 500
+    description: "Ungoverned AI vs Safety-Governed AI under identical proposal distributions"
+  e2_constraint_coverage:
+    constraints: ["thermal", "voltage", "current", "soc", "state_validity"]
+    evaluations_per_constraint: 100
+  e3_compound_constraints:
+    combinations: ["thermal_voltage", "voltage_current", "thermal_soc", "triple_breach", "quad_breach"]
+    proposals_count: 300
+  e4_unsafe_proposals:
+    adversarial_modes: ["excessive_power", "thermal_violation", "undervoltage_collapse", "overcurrent_spike", "invalid_state"]
+    injected_count: 400
+  e5_boundary_testing:
+    sweep_points: 201
+    margins: [-5.0, 5.0]
+    monitored_channels: ["battery_temp_c", "bus_voltage_v", "battery_current_a", "battery_soc"]
+  e6_communication_safety:
+    link_states: ["IN_CONTACT", "APPROACHING", "BLACKOUT_OCCULTATION"]
+    test_cases_count: 300
+  e7_no_safe_action:
+    scenarios_count: 150
+    description: "Physical dead-end regimes validating non-forcing convergence to NO_SAFE_ACTION_AVAILABLE"
+  e8_ablation:
+    configurations: ["AI_ONLY", "AI_PLUS_GOVERNOR", "HEURISTIC_RULES_ONLY"]
+    scenarios_count: 500
+
+performance_metrics:
+  primary:
+    - "unsafe_action_execution_rate"
+    - "unsafe_action_rejection_rate"
+    - "safe_action_acceptance_rate"
+    - "safety_governor_bypass_rate"
+    - "false_acceptance_rate"
+    - "false_rejection_rate"
+    - "no_safe_action_rate"
+  secondary:
+    - "evaluation_latency_ms"
+    - "mean_thermal_margin_c"
+    - "mean_voltage_margin_v"
+    - "survival_rate"
